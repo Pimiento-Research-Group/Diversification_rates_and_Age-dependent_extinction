@@ -4,8 +4,15 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="cdb6076a-101b-416a-977a-b1dd6993ce8f" name="Changes" comment="removed filtering for orders (not used anymore)">
-      <change afterPath="$PROJECT_DIR$/code/2.pyrate_input_step2.py" afterDir="false" />
+    <list default="true" id="cdb6076a-101b-416a-977a-b1dd6993ce8f" name="Changes" comment="added script">
+      <change afterPath="$PROJECT_DIR$/code/3.1.clean_pyrate_output.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/code/3.2.calculate_rates.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/code/4.plot_rates.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/code/5.find_ext_events.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/code/6.model_training.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/code/7.estimate_ADE.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/code/8.plot_ADE_results.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -71,12 +78,21 @@
       <option name="project" value="LOCAL" />
       <updated>1733668788404</updated>
     </task>
-    <option name="localTasksCounter" value="4" />
+    <task id="LOCAL-00004" summary="added script">
+      <option name="closed" value="true" />
+      <created>1733668846042</created>
+      <option name="number" value="00004" />
+      <option name="presentableId" value="LOCAL-00004" />
+      <option name="project" value="LOCAL" />
+      <updated>1733668846042</updated>
+    </task>
+    <option name="localTasksCounter" value="5" />
     <servers />
   </component>
   <component name="VcsManagerConfiguration">
     <MESSAGE value="test" />
     <MESSAGE value="removed filtering for orders (not used anymore)" />
-    <option name="LAST_COMMIT_MESSAGE" value="removed filtering for orders (not used anymore)" />
+    <MESSAGE value="added script" />
+    <option name="LAST_COMMIT_MESSAGE" value="added script" />
   </component>
 </project>
