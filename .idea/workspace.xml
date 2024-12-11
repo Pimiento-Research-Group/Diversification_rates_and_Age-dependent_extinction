@@ -5,15 +5,7 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="cdb6076a-101b-416a-977a-b1dd6993ce8f" name="Changes" comment="added script">
-      <change afterPath="$PROJECT_DIR$/code/10.plot_ext_rates.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/code/11.plot_longevities.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/code/12.ADE_Bayes.sh" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/code/13.ADE_Bayes_results.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/code/8.calculate_ext_rate.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/Diversification_rates_and_Age-dependent_extinction.iml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/Diversification_rates_and_Age-dependent_extinction.iml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/misc.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/misc.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/code/8.plot_ADE_results.py" beforeDir="false" afterPath="$PROJECT_DIR$/code/9.plot_ADE_results.py" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -30,9 +22,9 @@
   <component name="Git.Settings">
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
   </component>
-  <component name="ProjectColorInfo"><![CDATA[{
-  "associatedIndex": 2
-}]]></component>
+  <component name="ProjectColorInfo">{
+  &quot;associatedIndex&quot;: 2
+}</component>
   <component name="ProjectId" id="2pwDYyDaLDXcijFuWrNAtTmjxEE" />
   <component name="ProjectLevelVcsManager" settingsEditedManually="true" />
   <component name="ProjectViewState">
@@ -42,7 +34,7 @@
   <component name="PropertiesComponent"><![CDATA[{
   "keyToString": {
     "RunOnceActivity.ShowReadmeOnStart": "true",
-    "settings.editor.selected.configurable": "com.jetbrains.python.configuration.PyActiveSdkModuleConfigurable"
+    "settings.editor.selected.configurable": "com.jetbrains.python.configuration.PyIntegratedToolsModulesConfigurable"
   }
 }]]></component>
   <component name="SharedIndexes">
@@ -101,7 +93,15 @@
       <option name="project" value="LOCAL" />
       <updated>1733669866678</updated>
     </task>
-    <option name="localTasksCounter" value="6" />
+    <task id="LOCAL-00006" summary="added script">
+      <option name="closed" value="true" />
+      <created>1733671930827</created>
+      <option name="number" value="00006" />
+      <option name="presentableId" value="LOCAL-00006" />
+      <option name="project" value="LOCAL" />
+      <updated>1733671930827</updated>
+    </task>
+    <option name="localTasksCounter" value="7" />
     <servers />
   </component>
   <component name="VcsManagerConfiguration">
