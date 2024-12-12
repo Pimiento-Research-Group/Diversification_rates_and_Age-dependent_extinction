@@ -19,16 +19,37 @@ This repository contains the code and data for the analyses presented in the man
 
 ## Overview
 
-This repository contains the scripts used to estimate rates of extinction and speciation and evaluate age-dependent extinction (ADE) of neoselachian species and genera through the last 145 Myr.
+This repository contains the scripts used to estimate rates of extinction and speciation, and evaluate age-dependent extinction (ADE) of neoselachian species and genera through the last 145 Myr.
 
 ### Repository Structure
 
 - **`data/`**  
   Contains:
-  - PyRate input files generated and used in these analyses
+  - PyRate input files generated and used in the analyses presented in the publication
   - four pre-trained models used for the estimation of ADE
 
 - **`code/`**  
   Contains:
   - the scripts for the analyses
-  - requirements.txt file which containes all the Python packages used
+  - requirements.txt file with the required Python packages
+---
+
+## Usage notes
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
