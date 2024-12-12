@@ -1,8 +1,9 @@
 """
-Project: SHARK-XT Rates and ADE
+Project: Diversification Rates and ADE
 Author: Kristína Kocáková
 Description:
 Plotting of figure S7 - longevities distribution
+Input file - .txt file generated using the -ginput function inscript 3.2.
 """
 
 from pandas import *
@@ -14,7 +15,7 @@ import numpy as np
 
 
 #names of files
-lst = ["species", "selachi", "batos", "lamni", "carcharhini", "orectolobi", "hexanchi", "squali", "mylio", "raji", "rhinopristi"]
+lst = ["species", "genera"]
 #axes
 indx_lst = [0, 1, 2, 0, 1, 2, 0, 1, 2, 0, 1]
 
@@ -22,7 +23,7 @@ plt.rcParams['font.family'] = 'Arial'
 plt.rcParams['pdf.fonttype'] = 42
 plt.rcParams['xtick.labelsize'] = 6
 plt.rcParams['ytick.labelsize'] = 6
-fig, ax = plt.subplots(4 , 3, figsize = (6.69291, 8.26772), sharex=True)
+fig, ax = plt.subplots(1 , 2, figsize = (6.69291, 8.26772/4))
 plt.xticks(fontsize=6)
 plt.yticks(fontsize=6)
 

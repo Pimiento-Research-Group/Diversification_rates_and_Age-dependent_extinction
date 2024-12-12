@@ -1,12 +1,13 @@
 """
-Project: SHARK-XT Rates and ADE
+Project: Diversification Rates and ADE
 Author: Kristína Kocáková
 Description:
 Plotting of the distribution of predicted Weibull distribution parameters
-Figure 3
-Figure S4
-Figure S5
-Figure S6
+Each of the following figures uses data produced from a different input file, hence the scripts differ slightly and are presented separately
+1. Figure 3 - A plot containing extinction regimes based on PyRate (output from script 3.), estimated ADE positions for each time bin (output from script 7.), and extinction rate as a function of age in each time bin (output from script 8.)
+2. Figure S4 - A plot containing extinction regimes based on PyRate (output from script 3.), estimated ADE positions for each time bin (output from script 7.)
+3. Figure S5 - A plot containing estimated ADE positions for each time bin (output from script 7.)
+4. Figure S6 -  A plot containing estimated ADE positions for each time bin (output from script 7.)
 """
 
 import numpy as np
@@ -21,15 +22,12 @@ import matplotlib.patheffects as pe
 
 
 ###############
-#Plot Figure 3.
+#1. Plot Figure 3.
 ###############
 time_slice = [[145, 95.19], [95.19, 83.29], [83.29, 73.18], [73.18, 71.98], [66.48, 65.78], [65.78, 55.97], [55.97, 38.77], [38.77, 33.47], [33.47, 16.15], [16.15, 4.25], [4.25, 0.0117]]
 
 # mean extinction rate plot prep
-# only when using continuous rate
-# rates = pd.read_excel("/Users/kristinakocakova/Dropbox/Kristina_PhD/Analyses/PyRate/PyRate_Analysis/outputs/2024/all_species_15Myr/rates.xlsx")
 rates = pd.read_excel("/Users/kristinakocakova/Dropbox/Kristina_PhD/Analyses/PyRate/PyRate_Analysis/outputs/2024/fast_burnin_10_2024/species/rates.xlsx")
-
 
 time_e = rates["Time_e"].abs()
 rates["Time_e"] = time_e
@@ -272,9 +270,8 @@ sns.despine(left=True, bottom=True)
 plt.tight_layout()
 
 ###############
-#Plot Figure S4
+#2. Plot Figure S4
 ###############
-# extinction rate with highlighted bins + shape distributions
 
 time_slice = [[145, 94.885], [94.885, 86.282], [86.282, 73.777], [73.777, 71.576], [67.075, 65.374], [65.374, 39.164], [39.164, 33.362], [33.362, 3.351], [3.351, 0.001]]
 #extinction rare plot prep
@@ -347,6 +344,7 @@ subsection = alphabet[1 : len(time_slice)+1]
 ext_events = [0, 2, 5, 6]
 ext_episodes = [4, 8]
 constant = [1, 3, 7, 9]
+
 palette = []
 
 for i in range(data.shape[0]):
@@ -358,15 +356,6 @@ for i in range(data.shape[0]):
         palette.append("#f79797")
 
 palette = list(reversed(palette))
-"""
-from palettable.cmocean.sequential import Amp_20
-from matplotlib.colors import LinearSegmentedColormap
-
-cmap = LinearSegmentedColormap.from_list("LaJolla_custom", Amp_20.mpl_colors[5:20])
-palette = []
-for i in mean_rates:
-    palette.append(cmap(i*5))
-"""
 
 # start of plotting
 plt.rcParams['font.family'] = 'Arial'
@@ -476,11 +465,57 @@ for i in range(data.shape[0]):
     plt.tight_layout()
 
 ###############
-# Plot Figure S5
+#3. Plot Figure S5
+#comprises of a) and b) + c), these two are later put together manually
 ###############
 
+# a)
+data = np.load("/Users/kristinakocakova/Dropbox/Kristina_PhD/Analyses/PyRate/PyRate_Analysis/outputs/2024/ADE-NN_10_2024/species_single_bin.npy")
+
+clas = data[0, 0, 1]
+
+sns.set_theme(style="white", rc={"axes.facecolor": (0, 0, 0, 0)})
+plt.rcParams['font.family'] = 'Arial'
+plt.rcParams['pdf.fonttype'] = 42
+plt.rcParams['xtick.labelsize'] = 6
+plt.rcParams['ytick.labelsize'] = 6
+fig, ax = plt.subplots(figsize=(6.69291, 8.26772/5))
+ax.set_ylabel("Cretaceous\n+\nCenozoic\n(145 - 0.01 Ma)", fontsize=7)
+ax.set_yticks([0], [""])
+
+if clas == 1:
+    sns.histplot(ax=ax, x=data[0, :, 3], color='None', edgecolor="None",
+                 kde=True)
+    ax.lines[0].set_color('#FCBA03')
+    ax.plot([np.min(data[0, :, 4]), np.max(data[0, :, 5])], [6, 6], "--|", color="#888a89", alpha=.5, lw = 1)
+    ax.axhline(y=0, color='#FCBA03', lw=2.5)
+elif clas == 2:
+    sns.histplot(ax=ax, x=data[0, :, 9], color='None', edgecolor="None",
+                 kde=True)
+    sns.histplot(ax=ax, x=data[i, :, 12], color='None', edgecolor="None",
+                 kde=True)
+    ax.lines[0].set_color('#DD614A')
+    ax.lines[1].set_color('#DD614A')
+    ax.plot([np.min(data[0, :, 10]), np.max(data[0, :, 11])], [6, 6], "--|", color="#888a89",
+                                                          alpha=.5, lw = 1)
+    ax.plot([np.min(data[0, :, 13]), np.max(data[0, :, 14])], [9, 9], "--|",
+                                                          color="#888a89", alpha=.5, lw = 1)
+    ax.axhline(y=0, color='#DD614A', lw=2.5)
+elif clas == 0:
+    sns.histplot(ax=ax, x=data[0, :, 18], color="#6B43B5", kde=True)
+    ax.plot([np.min(data[0, :, 19]), np.max(data[0, :, 20])], [6, 6], "--|", color="#888a89",
+                                                          alpha=.5, lw = 1)
+    ax.axhline(y=0, color="#6B43B5", lw=2.5)
+
+ax.axvline(x=1, linestyle="dashed", color="black", lw = 1)
+
+sns.despine(left=True, bottom=True)
+plt.tight_layout()
+
+
+# b) and c)
 periods = ["Neogene\n+ Quaternary", "Paleogene", "Cretaceous"]
-lst = ["all_sp", "gen"]
+lst = ["species_periods", "genus_periods"]
 axes_coords = [[[0, 0], [1, 0], [2, 0]], [[0, 1], [1, 1], [2, 1]]]
 
 sns.set_theme(style="white", rc={"axes.facecolor": (0, 0, 0, 0)})
@@ -488,14 +523,14 @@ plt.rcParams['font.family'] = 'Arial'
 plt.rcParams['pdf.fonttype'] = 42
 plt.rcParams['xtick.labelsize'] = 6
 plt.rcParams['ytick.labelsize'] = 6
-fig, axes = plt.subplots(3, 3, figsize=(6.69291, 8.26772), sharex=False, sharey=False)
+fig, axes = plt.subplots(6, 2, figsize=(6.69291, 8.26772), sharex=True, sharey=False)
 plt.subplots_adjust( hspace =-1)
 fig.supxlabel("Estimated direction of age-dependent extinction", fontsize=7)
 fig.supylabel("", fontsize=7)
 
 for l, k in enumerate(lst):
 
-    data_raw = np.load("/Users/kristinakocakova/Dropbox/Kristina_PhD/Analyses/PyRate/PyRate_Analysis/ADE_NN/empirical/bins_version2/2024_new/subsets_by_bins/three_bins/{k}.npy".format(k =k))
+    data_raw = np.load("/Users/kristinakocakova/Dropbox/Kristina_PhD/Analyses/PyRate/PyRate_Analysis/outputs/2024/ADE-NN_10_2024/{k}.npy".format(k =k))
 
     data = np.array(data_raw)
     data = data[::-1, :, :]
@@ -543,20 +578,20 @@ for l, k in enumerate(lst):
         if classes[i] == 1:
             sns.histplot(ax = axes[axes_coords[l][i][0]][axes_coords[l][i][1]], x = data[i, :, 3], color = 'None', edgecolor = "None", kde=True)
             axes[axes_coords[l][i][0]][axes_coords[l][i][1]].lines[0].set_color('#FCBA03')
-            axes[axes_coords[l][i][0]][axes_coords[l][i][1]].plot([ci_min[i][0], ci_max[i][0]], [6, 6], "--|", color="#888a89", alpha = .5)
-            axes[axes_coords[l][i][0]][axes_coords[l][i][1]].axhline(y = 0, color = '#FCBA03', lw = 5)
+            axes[axes_coords[l][i][0]][axes_coords[l][i][1]].plot([ci_min[i][0], ci_max[i][0]], [6, 6], "--|", color="#888a89", alpha = .5, lw = 1)
+            axes[axes_coords[l][i][0]][axes_coords[l][i][1]].axhline(y = 0, color = '#FCBA03', lw = 2.5)
         elif classes[i] == 2:
             sns.histplot(ax=axes[axes_coords[l][i][0]][axes_coords[l][i][1]], x=data[i, :, 9], color = 'None', edgecolor = "None", kde=True)
             sns.histplot(ax=axes[axes_coords[l][i][0]][axes_coords[l][i][1]], x=data[i, :, 12], color = 'None', edgecolor = "None", kde=True)
             axes[axes_coords[l][i][0]][axes_coords[l][i][1]].lines[0].set_color('#DD614A')
             axes[axes_coords[l][i][0]][axes_coords[l][i][1]].lines[1].set_color('#DD614A')
-            axes[axes_coords[l][i][0]][axes_coords[l][i][1]].plot([ci_min[i][0], ci_max[i][0]], [6, 6], "--|", color="#888a89", alpha = .5)
-            axes[axes_coords[l][i][0]][axes_coords[l][i][1]].plot([ci_min[i][101], ci_max[i][101]], [9, 9], "--|", color="#888a89", alpha = .5)
-            axes[axes_coords[l][i][0]][axes_coords[l][i][1]].axhline(y=0, color = '#DD614A', lw=5)
+            axes[axes_coords[l][i][0]][axes_coords[l][i][1]].plot([ci_min[i][0], ci_max[i][0]], [6, 6], "--|", color="#888a89", alpha = .5, lw = 1)
+            axes[axes_coords[l][i][0]][axes_coords[l][i][1]].plot([ci_min[i][101], ci_max[i][101]], [9, 9], "--|", color="#888a89", alpha = .5, lw = 1)
+            axes[axes_coords[l][i][0]][axes_coords[l][i][1]].axhline(y=0, color = '#DD614A', lw=2.5)
         elif classes[i] == 0:
             sns.histplot(ax = axes[axes_coords[l][i][0]][axes_coords[l][i][1]], x = data[i, :, 18], color = "#6B43B5", kde=True)
-            axes[axes_coords[l][i][0]][axes_coords[l][i][1]].plot([ci_min[i][0], ci_max[i][0]], [6, 6], "--|", color="#888a89", alpha = .5)
-            axes[axes_coords[l][i][0]][axes_coords[l][i][1]].axhline(y = 0, color = "#6B43B5", lw = 5)
+            axes[axes_coords[l][i][0]][axes_coords[l][i][1]].plot([ci_min[i][0], ci_max[i][0]], [6, 6], "--|", color="#888a89", alpha = .5, lw = 1)
+            axes[axes_coords[l][i][0]][axes_coords[l][i][1]].axhline(y = 0, color = "#6B43B5", lw = 2.5)
         # axes[i, j].set_titles("")
         axes[axes_coords[l][i][0]][axes_coords[l][i][1]].set(yticks=[])
         if axes_coords[l][i][1] == 0:
@@ -565,13 +600,13 @@ for l, k in enumerate(lst):
             axes[axes_coords[l][i][0]][axes_coords[l][i][1]].set_ylabel("")
         # axes[i, j].set_ylabels()
         # axes[i, j].despine(left=True, bottom=True)
-        axes[axes_coords[l][i][0]][axes_coords[l][i][1]].axvline(x=1, linestyle="dashed", color="black")
+        axes[axes_coords[l][i][0]][axes_coords[l][i][1]].axvline(x=1, linestyle="dashed", color="black", lw = 1)
 
         sns.despine(left=True, bottom= True)
         plt.tight_layout()
 
 ###############
-# Plot Figure S6
+#4. Plot Figure S6
 ###############
 
 periods = ["Paleocene", "Maastrichtian", "Turonian\n-\nCampanian"]

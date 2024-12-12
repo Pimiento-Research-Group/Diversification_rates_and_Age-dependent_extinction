@@ -1,5 +1,5 @@
 """
-Project: Rates and ADE
+Project: Diversification Rates and ADE
 Author: Kristína Kocáková
 Description:
 Plot extinction rates calculated in Script 8

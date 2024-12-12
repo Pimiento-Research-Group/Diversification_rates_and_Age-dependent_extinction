@@ -1,18 +1,19 @@
 """
-Project: SHARK-XT Rates and ADE
+Project: Diversification Rates and ADE
 Author: Kristína Kocáková
 Description:
-1. In case PyRate output mcmm.log files weren't formatted correctly (happens when using Cluster)
+Optional scripts.
+1. In case PyRate output mcmm.log files weren't formatted correctly (sometimes happens when using Cluster)
 remove rows with incorrect formatting
-2. In case numbers in speciation or extinction rates get formatted incorrectly (two decimal markers in one number), drop rows containing these
+2. In case numbers in speciation or extinction rates get formatted incorrectly (two decimal markers in one number, sometimes happens when using Cluster), drop rows containing these
 This can be done on the combined file as well.
-3. Add taxa names to the output file produced by the -ginput function in PyRate
+3. Add taxa names to the output file produced by the -ginput function in PyRate (useful for data exploration)
 """
 
 from pandas import *
 import re
 
-# 1.
+# 1. Fix incorrectly formatted lines
 file_name = [1, 2, 3, 4, 5, 6, 7, 8, 9, 10]
 def rm_lines(file_name):
 
@@ -31,7 +32,7 @@ def rm_lines(file_name):
 for i in file_name:
     rm_lines(i)
 
-# 2.
+# 2. Fix incorrectly formatted numbers
 
 log = open("/Users/kristinakocakova/Dropbox/Kristina_PhD/Analyses/PyRate/PyRate_Analysis/outputs/2024/all_sp_fast_burn/combined_10_sp_rates.log", "r")
 
@@ -50,7 +51,7 @@ with open("/Users/kristinakocakova/Dropbox/Kristina_PhD/Analyses/PyRate/PyRate_A
         f.write(f"{line}")
 
 
-# 3.
+# 3. Add names to speciation and extinction times file (_se_est.txt)
 
 from pandas import *
 

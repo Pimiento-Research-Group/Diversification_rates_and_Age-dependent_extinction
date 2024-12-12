@@ -1,5 +1,5 @@
 """
-Project: SHARK-XT Rates and ADE
+Project: Diversification Rates and ADE
 Author: Kristína Kocáková
 Description:
 Extraction of Weibull shape parameters predicted by ADE-Bayes, calculation of mean + 95% CIs

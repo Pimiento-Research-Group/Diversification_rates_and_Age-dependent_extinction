@@ -1,11 +1,11 @@
 """
-Project: SHARK-XT Rates and ADE
+Project: Diversification Rates and ADE
 Author: Kristína Kocáková
 Description:
-FUNCTION TO PRODUCE 3 PLOTS - EXTINCTION, SPECIATION AND BOTH OVERLAID IN THE SAME GRAPH, AND SAVE THE EXTINCTION AND SPECIATION RATES IN AN EXCEL FILE
-INPUT: NAME OF THE DIRECTORY CONTAINING THE R SCRIPT GENERATED USING -plotRJ
+Function to produce a plot of extinction, speciation and net diversification, and to save the estimated rates in an .xlsx file
+Input file - .R script generated using the -plotRJ
 Figure 1. - Plotted without rate shifts, simply remove or comment out FG from the plt.subplot.mosaic and the ax lines with ["F"] or ["G"]
-Figure S2-S3 - Plotted witht the full plot() function
+Figure S2-S3 - Plotted with the full plot() function
 Figure S1 - Individual rate shifts, see below plot() function
 """
 

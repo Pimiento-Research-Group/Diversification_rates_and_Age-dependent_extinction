@@ -1,3 +1,12 @@
+: '
+Project: Diversification Rates and ADE
+Author: Kristína Kocáková
+Description:
+Estimation of the Weibull distribution shape parameter using the ADE-Bayes method
+-filter_lad argument needs to be changed to the appropriate value to represent the time bin of interest
+This script was written to be launched in a HPC Cluster, but can be run locally by simply using the last line withouth the srun command
+'
+
 #!/usr/bin/env bash
 #SBATCH --mail-type=END,FAIL
 #SBATCH --mail-user=kristina.kocakova@pim.uzh.ch

@@ -4,8 +4,25 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="cdb6076a-101b-416a-977a-b1dd6993ce8f" name="Changes" comment="added script">
+    <list default="true" id="cdb6076a-101b-416a-977a-b1dd6993ce8f" name="Changes" comment="added requirements.txt">
+      <change afterPath="$PROJECT_DIR$/code/3.1.calculate_rates.sh" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/code/3.2.process_pyrate_output.sh" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/code/9.find_age_categories.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/code/1.pyrate_input_step1.py" beforeDir="false" afterPath="$PROJECT_DIR$/code/1.pyrate_input_step1.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/code/10.plot_ext_rates.py" beforeDir="false" afterPath="$PROJECT_DIR$/code/11.plot_ext_rates.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/code/11.plot_longevities.py" beforeDir="false" afterPath="$PROJECT_DIR$/code/12.plot_longevities.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/code/12.ADE_Bayes.sh" beforeDir="false" afterPath="$PROJECT_DIR$/code/13.ADE_Bayes.sh" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/code/13.ADE_Bayes_results.py" beforeDir="false" afterPath="$PROJECT_DIR$/code/14.ADE_Bayes_results.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/code/2.pyrate_input_step2.py" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/code/3.1.clean_pyrate_output.py" beforeDir="false" afterPath="$PROJECT_DIR$/code/3.3.clean_pyrate_output.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/code/3.2.calculate_rates.py" beforeDir="false" afterPath="$PROJECT_DIR$/code/2.pyrate_input_step2.R" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/code/4.plot_rates.py" beforeDir="false" afterPath="$PROJECT_DIR$/code/4.plot_rates.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/code/5.find_ext_events.py" beforeDir="false" afterPath="$PROJECT_DIR$/code/5.find_ext_events.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/code/6.model_training.py" beforeDir="false" afterPath="$PROJECT_DIR$/code/6.model_training.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/code/7.estimate_ADE.py" beforeDir="false" afterPath="$PROJECT_DIR$/code/7.estimate_ADE.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/code/8.calculate_ext_rate.py" beforeDir="false" afterPath="$PROJECT_DIR$/code/8.calculate_ext_rate.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/code/9.plot_ADE_results.py" beforeDir="false" afterPath="$PROJECT_DIR$/code/10.plot_ADE_results.py" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -15,6 +32,7 @@
   <component name="FileTemplateManagerImpl">
     <option name="RECENT_TEMPLATES">
       <list>
+        <option value="R Script" />
         <option value="Python Script" />
       </list>
     </option>
@@ -31,12 +49,12 @@
     <option name="hideEmptyMiddlePackages" value="true" />
     <option name="showLibraryContents" value="true" />
   </component>
-  <component name="PropertiesComponent"><![CDATA[{
-  "keyToString": {
-    "RunOnceActivity.ShowReadmeOnStart": "true",
-    "settings.editor.selected.configurable": "com.jetbrains.python.configuration.PyIntegratedToolsModulesConfigurable"
+  <component name="PropertiesComponent">{
+  &quot;keyToString&quot;: {
+    &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
+    &quot;settings.editor.selected.configurable&quot;: &quot;com.jetbrains.python.configuration.PyIntegratedToolsModulesConfigurable&quot;
   }
-}]]></component>
+}</component>
   <component name="SharedIndexes">
     <attachedChunks>
       <set>
@@ -101,13 +119,22 @@
       <option name="project" value="LOCAL" />
       <updated>1733671930827</updated>
     </task>
-    <option name="localTasksCounter" value="7" />
+    <task id="LOCAL-00007" summary="added requirements.txt">
+      <option name="closed" value="true" />
+      <created>1733928971687</created>
+      <option name="number" value="00007" />
+      <option name="presentableId" value="LOCAL-00007" />
+      <option name="project" value="LOCAL" />
+      <updated>1733928971687</updated>
+    </task>
+    <option name="localTasksCounter" value="8" />
     <servers />
   </component>
   <component name="VcsManagerConfiguration">
     <MESSAGE value="test" />
     <MESSAGE value="removed filtering for orders (not used anymore)" />
     <MESSAGE value="added script" />
-    <option name="LAST_COMMIT_MESSAGE" value="added script" />
+    <MESSAGE value="added requirements.txt" />
+    <option name="LAST_COMMIT_MESSAGE" value="added requirements.txt" />
   </component>
 </project>

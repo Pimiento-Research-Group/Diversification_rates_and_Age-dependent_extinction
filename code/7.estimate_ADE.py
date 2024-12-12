@@ -1,9 +1,8 @@
 """
-Project: SHARK-XT Rates and ADE
+Project: Diversification Rates and ADE
 Author: Kristína Kocáková
 Description:
-Script 2.
-Prediction of the Weibull distribution shape parameter
+Prediction of the Weibull distribution shape parameter based on empirical data using the trained models created in script 6.
 """
 
 import glob, os, argparse, sys
@@ -777,12 +776,9 @@ if __name__ == "__main__":
     n_predictions = 100
 
     #Time bins determined by extinction patterns based on all neoselachii species
-    #Refer to Notes/PhD Kristina/ADE/Time slices for subsets
     time_slice = [[145, 95.95], [95.95, 83.29], [84, 73.58], [73.58, 71.884], [66.782, 65.481], [65.481, 55.477], [55.477, 39.369], [39.369, 33.166], [33.166, 16.258], [16.258, 3.65], [3.65, 0.0117]]
-    # #Net diversification based bins
-    # time_slice = [[145, 101.59], [101.59, 99.99], [99.99, 87.69], [87.69, 81.78],[73.88, 70.78], [67.28, 64.78], [64.78, 56.47], [56.47, 54.97], [54.97, 39.66], [39.66, 32.56], [32.56, 5.34], [5.34, 0]]
-    #
 
+    # Create empty arrays to save the values
     data = np.zeros((len(time_slice), n_predictions, 21))
     rmse_1 = np.zeros(len(time_slice))
     rmse_2_1 = np.zeros(len(time_slice))

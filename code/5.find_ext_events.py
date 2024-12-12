@@ -1,8 +1,8 @@
 """
-Project: SHARK-XT Rates and ADE
+Project: Diversification Rates and ADE
 Author: Kristína Kocáková
 Description:
-Calculate the background rate and identify times when the mean rate reaches at least 3 times the background
+Calculate the background rate and identify times when the mean rate reaches at least 3 or 6 times the background
 """
 
 from pandas import *

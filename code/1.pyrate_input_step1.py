@@ -1,9 +1,9 @@
 """
-Project: SHARK-XT Rates and ADE
+Project: Diversification Rates and ADE
 Author: Kristína Kocáková
 Description:
-Create an input file for PyRate program from an .xlsx file, options for species and genus level
-If adenn = True the file will simply not contain the collection number, which is required for ADE-NN input
+Create an input file (.txt) from an .xlsx file, which is then used to generate a PyRate input file (script 2.), options for species and genus level filtering
+If adenn = True then the .txt file will simply not contain the collection number, which is required for the file to be used as an ADE-NN input
 """
 
 from pandas import *
@@ -23,8 +23,6 @@ def pyrate_input(path_to_database, taxonomic_rank, path_to_output, adenn = False
     if taxonomic_rank == "species":
         occurrences = occurrences.loc[occurrences["rank"] == "species"]
         occurrences = occurrences.loc[occurrences["early_interval"] != "present"]
-
-        #APPLY ANY ADDITIONAL FILTERS (Optional), e.g.:
 
         #Only occurrences with age resolution below 15 Myr
         occurrences = occurrences.loc[occurrences["age_range"] <= 15]
