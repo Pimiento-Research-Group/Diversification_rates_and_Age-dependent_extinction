@@ -25,6 +25,7 @@ This repository contains the scripts used to estimate rates of extinction and sp
 
 - **`data/`**  
   Contains:
+  - a .txt file with geological stage boundaries in milions of years (Myr)
   - PyRate input files generated and used in the analyses presented in the publication
   - four pre-trained models used for the estimation of ADE
 
@@ -32,9 +33,16 @@ This repository contains the scripts used to estimate rates of extinction and sp
   Contains:
   - the scripts for the analyses
   - requirements.txt file with the required Python packages
+
 ---
 
-## Usage notes
+## Usage notes for scripts
+
+1. **PyRate input step 1.** 
+  - filters the FINS dataset to produce a .txt file usable by the PyRate program, for an example of a PyRate input file see [this repository](https://github.com/dsilvestro/PyRate/wiki/1.-Preparing-input-file)
+  - input - FINS Dataset openly accessible [here](https://zenodo.org/uploads/13983668)
+  - output - .txt formatted according to PyRate requirements
+  - alternative output - if adenn = True argument is used, this script generates an input file needed for the ADE-NN analyses
 
 
 
