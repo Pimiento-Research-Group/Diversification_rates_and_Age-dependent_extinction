@@ -116,7 +116,7 @@ The PyRate program is required for a portion of the analyses in this study, the 
           - global species assemblage extinction regimes (results presented in Figure 3 and S4) - `time_slice = [[145, 95.610], [95.610, 83.502], [83.502, 73.096], [73.096, 71.995], [66.591, 65.791], [65.791, 55.785], [55.785, 38.774], [38.774, 33.471], [33.471, 3.452], [3.452, 0.01]]`
           - Cretaceous + Cenozoic (Figure 5a) - `time_slice = [[145, 0.01]]`
           - Geological periods (Figure 5b+c) - `time_slice = [[145, 66], [66, 23.03], [23.03, 0.01]]`
-          - time bins used in Guinot & Condamine 2023 (Figure S6) - `time_slice = [[93.9, 66],[72.1, 66], [66, 56]]`
+          - time bins used in [Guinot & Condamine 2023](https://www.science.org/doi/10.1126/science.abn2080?url_ver=Z39.88-2003&rfr_id=ori:rid:crossref.org&rfr_dat=cr_pub%20%200pubmed) (Figure S6) - `time_slice = [[93.9, 66],[72.1, 66], [66, 56]]`
     - *output* - a 3D array containing the estimated values, saved as a .npy file, first dimension will reflect the number of time bins, second will reflect the number of replicates (we use 100), third is fixed (21 sets of values are estimated by the prediction function)
 8. [**Estimate extinction rate as a function of age**](https://github.com/Pimiento-Research-Group/Diversification_rates_and_Age-dependent_extinction/blob/master/code/8.calculate_ext_rate.py)
     - calculate extinction rates based on the Weibull shape parameter modelled in Script 7.
