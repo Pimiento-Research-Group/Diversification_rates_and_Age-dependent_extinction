@@ -211,7 +211,7 @@ def plot(file_name):
                       columns=['Time_s', 'Rate_s', "HPD_Min_s", "HPD_Max_s", "Time_e", "Rate_e", "HPD_Min_e", "HPD_Max_e"])
 
 
-    # df.to_excel("/Users/kristinakocakova/PycharmProjects/Diversification_and_Age-dependent_Extinction/data/all_species_{i}/rates.xlsx".format(i=file_name))
+    df.to_excel("/Users/kristinakocakova/PycharmProjects/Diversification_and_Age-dependent_Extinction/data/all_species_{i}/rates.xlsx".format(i=file_name))
 
     # fig.savefig("/Users/kristinakocakova/PycharmProjects/Diversification_and_Age-dependent_Extinction/figures/all_species_{i}/rates_{i}.pdf".format(i=file_name), bbox_inches='tight')
 

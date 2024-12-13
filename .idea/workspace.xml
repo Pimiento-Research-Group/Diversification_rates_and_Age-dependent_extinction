@@ -4,25 +4,9 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="cdb6076a-101b-416a-977a-b1dd6993ce8f" name="Changes" comment="added requirements.txt">
-      <change afterPath="$PROJECT_DIR$/code/3.1.calculate_rates.sh" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/code/3.2.process_pyrate_output.sh" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/code/9.find_age_categories.py" afterDir="false" />
+    <list default="true" id="cdb6076a-101b-416a-977a-b1dd6993ce8f" name="Changes" comment="added ages.txt">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/code/1.pyrate_input_step1.py" beforeDir="false" afterPath="$PROJECT_DIR$/code/1.pyrate_input_step1.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/code/10.plot_ext_rates.py" beforeDir="false" afterPath="$PROJECT_DIR$/code/11.plot_ext_rates.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/code/11.plot_longevities.py" beforeDir="false" afterPath="$PROJECT_DIR$/code/12.plot_longevities.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/code/12.ADE_Bayes.sh" beforeDir="false" afterPath="$PROJECT_DIR$/code/13.ADE_Bayes.sh" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/code/13.ADE_Bayes_results.py" beforeDir="false" afterPath="$PROJECT_DIR$/code/14.ADE_Bayes_results.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/code/2.pyrate_input_step2.py" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/code/3.1.clean_pyrate_output.py" beforeDir="false" afterPath="$PROJECT_DIR$/code/3.3.clean_pyrate_output.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/code/3.2.calculate_rates.py" beforeDir="false" afterPath="$PROJECT_DIR$/code/2.pyrate_input_step2.R" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/code/4.plot_rates.py" beforeDir="false" afterPath="$PROJECT_DIR$/code/4.plot_rates.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/code/5.find_ext_events.py" beforeDir="false" afterPath="$PROJECT_DIR$/code/5.find_ext_events.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/code/6.model_training.py" beforeDir="false" afterPath="$PROJECT_DIR$/code/6.model_training.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/code/7.estimate_ADE.py" beforeDir="false" afterPath="$PROJECT_DIR$/code/7.estimate_ADE.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/code/8.calculate_ext_rate.py" beforeDir="false" afterPath="$PROJECT_DIR$/code/8.calculate_ext_rate.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/code/9.plot_ADE_results.py" beforeDir="false" afterPath="$PROJECT_DIR$/code/10.plot_ADE_results.py" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -127,7 +111,31 @@
       <option name="project" value="LOCAL" />
       <updated>1733928971687</updated>
     </task>
-    <option name="localTasksCounter" value="8" />
+    <task id="LOCAL-00008" summary="added more detailed descriptions, split some scripts into individual ones">
+      <option name="closed" value="true" />
+      <created>1734011348523</created>
+      <option name="number" value="00008" />
+      <option name="presentableId" value="LOCAL-00008" />
+      <option name="project" value="LOCAL" />
+      <updated>1734011348523</updated>
+    </task>
+    <task id="LOCAL-00009" summary="added pre-trained models and PyRate input files">
+      <option name="closed" value="true" />
+      <created>1734011555643</created>
+      <option name="number" value="00009" />
+      <option name="presentableId" value="LOCAL-00009" />
+      <option name="project" value="LOCAL" />
+      <updated>1734011555643</updated>
+    </task>
+    <task id="LOCAL-00010" summary="added ages.txt">
+      <option name="closed" value="true" />
+      <created>1734023207040</created>
+      <option name="number" value="00010" />
+      <option name="presentableId" value="LOCAL-00010" />
+      <option name="project" value="LOCAL" />
+      <updated>1734023207040</updated>
+    </task>
+    <option name="localTasksCounter" value="11" />
     <servers />
   </component>
   <component name="VcsManagerConfiguration">
@@ -135,6 +143,9 @@
     <MESSAGE value="removed filtering for orders (not used anymore)" />
     <MESSAGE value="added script" />
     <MESSAGE value="added requirements.txt" />
-    <option name="LAST_COMMIT_MESSAGE" value="added requirements.txt" />
+    <MESSAGE value="added more detailed descriptions, split some scripts into individual ones" />
+    <MESSAGE value="added pre-trained models and PyRate input files" />
+    <MESSAGE value="added ages.txt" />
+    <option name="LAST_COMMIT_MESSAGE" value="added ages.txt" />
   </component>
 </project>
