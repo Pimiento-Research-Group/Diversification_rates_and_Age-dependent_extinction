@@ -75,7 +75,7 @@ The PyRate program is required for a portion of the analyses in this study, the 
   1. Combine the .log files into a single set of posterior values using the `-combLogRJ` command.
      - *input* - a path to the directory where the outputs from Script 3.1. are saved
      - *output* - 3 files - combined_10_mcmc.log, combined_10_ex_rates.log and combined_10_sp_rates.log
-  2. Generate an .R script containing the mean rates and 95% CIs required for calculations and plotting using the `-plotRJ` command. This script also generates a default PyRate plot of the rates.
+  2. Generate an .r script containing the mean rates and 95% CIs required for calculations and plotting using the `-plotRJ` command. This script also generates a default PyRate plot of the rates.
      - the following setting were used:
        - `-tag` combined - only use the combined posteriors, if not used a plot will be generated for each mcmc.log file in the directory
        - `-grid_plot` 0.1 - calculate the rate for each 0.1 Myr 
@@ -86,11 +86,18 @@ The PyRate program is required for a portion of the analyses in this study, the 
      - *input* - combined_10_mcmc.log file
      - *output* - *_se_est.txt file containing the speciation and extinction times in Myr for each taxon in the dataset
 - 3.3. [**Output cleaning**](https://github.com/Pimiento-Research-Group/Diversification_rates_and_Age-dependent_extinction/blob/master/code/3.3.clean_pyrate_output.py)
-  - this is an optional step created for a scenario in which the formatting of the output files isn't correct which may happen when using an HPC Cluster (see not directly in the script)
-  - if required this step should be done before step 3.2.
+  - this is an optional step created for a scenario in which the formatting of the output files isn't correct, which may happen when using an HPC Cluster (see notes directly in the script)
+  - if required, this step should be done before step 3.2.
 4. [**Plot the diversification rates**](https://github.com/Pimiento-Research-Group/Diversification_rates_and_Age-dependent_extinction/blob/master/code/4.plot_rates.py)
-5. d
-6. d
+  - plot diversification rates, produces figures 1., S1, S2 and S3
+  - *input* - RTT_plots.r file generated in Script 3.2.
+  - *output* - .pdf plots and an .xlsx file containing the rates at each 0.1 Myr
+5. [**Find extinction and origination events**](https://github.com/Pimiento-Research-Group/Diversification_rates_and_Age-dependent_extinction/blob/master/code/5.find_ext_events.py)
+  - this script prints the time periods in Myrs where the extinction or origination rate reaches the intensity specified
+  - the intesity of interest is defined in the `time_ext[rate_ext > 3*harm_mean]` line, here we looked for events of moderate intesity (i.e. at least 3 times higher than background), and intense intesity (i.e. at least 6 times higher than background, `time_ext[rate_ext > 6*harm_mean]`)
+  - *input* - RTT_plots.r file generated in Script 3.2.
+  - *output* - Myrs during which the desired level of rate intensity was reached, these will be printed in the console
+6.  [**Train and evaluate ADE-NN models**](https://github.com/Pimiento-Research-Group/Diversification_rates_and_Age-dependent_extinction/blob/master/code/6.model_training.py)
 7. d
 8. d
 9. d
