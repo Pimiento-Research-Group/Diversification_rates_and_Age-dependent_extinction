@@ -142,9 +142,18 @@ The PyRate program is required for a portion of the analyses in this study, the 
     - plot Figure S7
     - *input* - *_se_est.txt file generated in Script 3.2.3
     - *output* - figures
-13. d
-14. d
-15. d
+13. [**ADE predicted by ADE-Bayes**](https://github.com/Pimiento-Research-Group/Diversification_rates_and_Age-dependent_extinction/blob/master/code/13.ADE_Bayes.sh)
+    - to compare two methodologies ADE was also predicted using an alternative model implemented within the PyRate program, more details [here](https://github.com/dsilvestro/PyRate/blob/master/tutorials/pyrate_tutorial_4.md#age-dependent-extinction-ade-model)
+    - the following settings were used:
+      - `-qShift` /path/to/ages.txt - allow peservation rate to vary in each geological stage (requires a .txt file, see *input* below)
+      - `-filter` 93.9 72.1 - specified the time bin of interest (time bins used were 93.9 72.1, 72.1 66, 66 56)
+    - *input* - PyRate input file generated in Script 2.
+    - *output* - *_mcmc.log file for each time bin
+14. [**Extract results from ADE-Bayes**](https://github.com/Pimiento-Research-Group/Diversification_rates_and_Age-dependent_extinction/blob/master/code/14.ADE_Bayes_results.py)
+    - Obtain the mean estimated Weibull distribution shape + 95 CIs in each time bin
+    - *input* - *_mcmc.log file generated in Script 13.
+    - *output* - a mean shape parameter and 95% CIs printed in the console
+
 
 
 
