@@ -4,9 +4,9 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="cdb6076a-101b-416a-977a-b1dd6993ce8f" name="Changes" comment="added ages.txt">
+    <list default="true" id="cdb6076a-101b-416a-977a-b1dd6993ce8f" name="Changes" comment="uncommented function to save the rates in a file">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/code/4.plot_rates.py" beforeDir="false" afterPath="$PROJECT_DIR$/code/4.plot_rates.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/code/5.find_ext_events.py" beforeDir="false" afterPath="$PROJECT_DIR$/code/5.find_ext_events.py" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -135,7 +135,15 @@
       <option name="project" value="LOCAL" />
       <updated>1734023207040</updated>
     </task>
-    <option name="localTasksCounter" value="11" />
+    <task id="LOCAL-00011" summary="uncommented function to save the rates in a file">
+      <option name="closed" value="true" />
+      <created>1734086933643</created>
+      <option name="number" value="00011" />
+      <option name="presentableId" value="LOCAL-00011" />
+      <option name="project" value="LOCAL" />
+      <updated>1734086933643</updated>
+    </task>
+    <option name="localTasksCounter" value="12" />
     <servers />
   </component>
   <component name="VcsManagerConfiguration">
@@ -146,6 +154,7 @@
     <MESSAGE value="added more detailed descriptions, split some scripts into individual ones" />
     <MESSAGE value="added pre-trained models and PyRate input files" />
     <MESSAGE value="added ages.txt" />
-    <option name="LAST_COMMIT_MESSAGE" value="added ages.txt" />
+    <MESSAGE value="uncommented function to save the rates in a file" />
+    <option name="LAST_COMMIT_MESSAGE" value="uncommented function to save the rates in a file" />
   </component>
 </project>

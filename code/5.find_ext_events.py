@@ -25,8 +25,8 @@ def extract_ext_rate(directory):
             lyst[i] = float(lyst[i])
         return lyst
 
-    time_e = convert(r.iloc[19])
-    rate_e = convert(r.iloc[20])
+    time_e = convert(r.iloc[19]) #for origination channge to 3
+    rate_e = convert(r.iloc[20]) #for origination change to 4
 
     return time_e, rate_e
 
