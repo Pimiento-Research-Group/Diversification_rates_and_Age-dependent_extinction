@@ -117,13 +117,31 @@ The PyRate program is required for a portion of the analyses in this study, the 
           - Cretaceous + Cenozoic (Figure 5a) - `time_slice = [[145, 0.01]]`
           - Geological periods (Figure 5b+c) - `time_slice = [[145, 66], [66, 23.03], [23.03, 0.01]]`
           - time bins used in Guinot & Condamine 2023 (Figure S6) - `time_slice = [[93.9, 66],[72.1, 66], [66, 56]]`
-    - *output* - an array containing the estimated values, saved as a .npy file
-
-  
-9. d
-10. d
-11. d
-12. d
+    - *output* - a 3D array containing the estimated values, saved as a .npy file, first dimension will reflect the number of time bins, second will reflect the number of replicates (we use 100), third is fixed (21 sets of values are estimated by the prediction function)
+8. [**Estimate extinction rate as a function of age**](https://github.com/Pimiento-Research-Group/Diversification_rates_and_Age-dependent_extinction/blob/master/code/8.calculate_ext_rate.py)
+    - calculate extinction rates based on the Weibull shape parameter modelled in Script 7.
+    - *input* - *.npy file from Script 7.
+    - *output* - a 3D array of the estimated extinction rates per 0.1 Myr saved as a .npy file. The first two dimensions will be the same as the input file, the third will be the same as the number of subset bins
+9. [**Find Myr representing age categories**](https://github.com/Pimiento-Research-Group/Diversification_rates_and_Age-dependent_extinction/blob/master/code/9.find_age_categories.py)
+    - age categories are used in the plotting scripts below
+    - *input* - .txt file with estimated origination and extinction times from Script 3.2.3
+    - *output* - ages in Myr representing young, middle-aged and elder taxa are printed in the console
+10. [**Plot ADE results**](https://github.com/Pimiento-Research-Group/Diversification_rates_and_Age-dependent_extinction/blob/master/code/10.plot_ADE_results.py)
+    - the script contains 4 sections, each used to plot a figure (Figure 3, S4, S5, S6) - see notes inside the script
+    - *inputs*:
+        - .npy file containing results from Script 7.
+        - .npy file containing results from Script 8.
+        - list of time bins used when generating results of Script 7.
+        - .xlsx file generated in Script 4.
+    - *output* - figures
+11. [**Plot extinction rates as a function of age**](https://github.com/Pimiento-Research-Group/Diversification_rates_and_Age-dependent_extinction/blob/master/code/11.plot_ext_rates.py)
+    - the script contains 2 sections, each used to plot a figure (Figure 4 and S8) - see notes inside the script
+    - *input* - .npy file containing results from Script 8.
+    - *output* - figures
+12. [**Plot distribution of longevities**](https://github.com/Pimiento-Research-Group/Diversification_rates_and_Age-dependent_extinction/blob/master/code/12.plot_longevities.py)
+    - plot Figure S7
+    - *input* - *_se_est.txt file generated in Script 3.2.3
+    - *output* - figures
 13. d
 14. d
 15. d
