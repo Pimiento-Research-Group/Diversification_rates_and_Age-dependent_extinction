@@ -39,7 +39,7 @@ This repository contains the scripts used to estimate rates of extinction and sp
 ## Usage notes
 
 The PyRate program is required for a portion of the analyses in this study, the program and the instruction on how to compile it can be found in [this repository](https://github.com/dsilvestro/PyRate).
-
+### Diversification rates
 1. [**PyRate input step 1.**](https://github.com/Pimiento-Research-Group/Diversification_rates_and_Age-dependent_extinction/blob/master/code/1.pyrate_input_step1.py)
   - filters the FINS dataset to produce a .txt file usable by the PyRate program, for an example of a PyRate input file see [this repository](https://github.com/dsilvestro/PyRate/wiki/1.-Preparing-input-file)
   - *input* - Occurrences data from the FINS Dataset openly accessible [here](https://zenodo.org/uploads/13983668)
@@ -97,15 +97,36 @@ The PyRate program is required for a portion of the analyses in this study, the 
   - the intesity of interest is defined in the `time_ext[rate_ext > 3*harm_mean]` line, here we looked for events of moderate intesity (i.e. at least 3 times higher than background), and intense intesity (i.e. at least 6 times higher than background, `time_ext[rate_ext > 6*harm_mean]`)
   - *input* - RTT_plots.r file generated in Script 3.2.
   - *output* - Myrs during which the desired level of rate intensity was reached, these will be printed in the console
+---
+### Age-dependent extinction (ADE)
 6.  [**Train and evaluate ADE-NN models**](https://github.com/Pimiento-Research-Group/Diversification_rates_and_Age-dependent_extinction/blob/master/code/6.model_training.py)
-7. d
-8. d
+   - this script contains all the functions to simulate data, train, validate, test and save the ADE-NN models, and also to evaluate the performance of the models
+   - **IMPORTANT**: The current version of the script produces the models in a Keras 2 format, which is not readable by Keras 3, therefore an environment with Keras 2 is needed. Alternative scripts producing models in a format compatible with Keras 3 will be added in the future.
+   - *input* - none
+   - *output* - 4 directories, each containing a trained model - a classifier and a predictive model for each of the three ADE types (ADE0, ADE1, ADE2 - see manuscript)
+   - *Note*: This step can be skipped, pre-trained models are available [here](https://github.com/Pimiento-Research-Group/Diversification_rates_and_Age-dependent_extinction/tree/master/data)
+7. [**Predict ADE in empirical data**](https://github.com/Pimiento-Research-Group/Diversification_rates_and_Age-dependent_extinction/blob/master/code/7.estimate_ADE.py)
+  - estimate the class of ADE and the Weibull distribution shape parameters describing the distribution of longevities within a given time bin, including the prediction error. Sample size of each time bin is printed in the console during the estimation process
+  - *inputs*:
+    - path to the directories containing the trained models
+        - pre-trained models used in this study are available [here](https://github.com/Pimiento-Research-Group/Diversification_rates_and_Age-dependent_extinction/tree/master/data)
+    - path to the ADE-NN input file - a .txt file generated using Script 1. and applying the `adenn = True` argument
+    - a list defining the time bins of interest - this list can be based on extinction regimes defined in Script 5, or can represent any arbitrary time bins, such as geological epochs or stages
+        - in this study we used the following time bins:
+          - global species assemblage extinction regimes (results presented in Figure 3 and S4) - `time_slice = [[145, 95.610], [95.610, 83.502], [83.502, 73.096], [73.096, 71.995], [66.591, 65.791], [65.791, 55.785], [55.785, 38.774], [38.774, 33.471], [33.471, 3.452], [3.452, 0.01]]`
+          - Cretaceous + Cenozoic (Figure 5a) - `time_slice = [[145, 0.01]]`
+          - Geological periods (Figure 5b+c) - `time_slice = [[145, 66], [66, 23.03], [23.03, 0.01]]`
+          - time bins used in Guinot & Condamine 2023 (Figure S6) - `time_slice = [[93.9, 66],[72.1, 66], [66, 56]]`
+    - *output* - an array containing the estimated values, saved as a .npy file
+
+  
 9. d
 10. d
 11. d
 12. d
 13. d
 14. d
+15. d
 
 
 
