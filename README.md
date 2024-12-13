@@ -44,7 +44,7 @@ The PyRate program is required for a portion of the analyses in this study, the 
   - filters the FINS dataset to produce a .txt file usable by the PyRate program, for an example of a PyRate input file see [this repository](https://github.com/dsilvestro/PyRate/wiki/1.-Preparing-input-file)
   - *input* - Occurrences data from the FINS Dataset openly accessible [here](https://zenodo.org/uploads/13983668)
   - *output* - .txt file formatted according to PyRate requirements
-  - *alternative output* - if adenn = True argument is used, this script generates a .txt input file needed for the ADE-NN analyses
+  - *alternative output* - if `adenn = True` argument is used, this script generates a .txt input file needed for the ADE-NN analyses
 2. **PyRate input file step 1.**
   - converts the .txt file generated in Script 1. to a *_PyRate.py file readable by the PyRate program
   - the function in this script assigns an age to each occurrence randomy sampled from a uniform distribution delimited by the minimum and maximum age of the occurrence, for details see [this repository](https://github.com/dsilvestro/PyRate/wiki/1.-Preparing-input-file)
@@ -59,7 +59,7 @@ The PyRate program is required for a portion of the analyses in this study, the 
     - we used the following settings:
         - `-n` 50000000 - number of generations
         - `-s` 1000 - sample every 1000th generation
-        - `-qShift` - allow peservation rate to vary in each geological stage (requires a .txt file, see *input* below)
+        - `-qShift` /path/to/ages.txt - allow peservation rate to vary in each geological stage (requires a .txt file, see *input* below)
         - `-min_dt` 0.5 - look for a rate shift every 0.5 Myr
         - - `-mG`- allow preservation rate to vary amongst taxa
         - `-pP` 2 0 - prior for the gamma distribution of preservation rates
@@ -68,8 +68,25 @@ The PyRate program is required for a portion of the analyses in this study, the 
         - `-fU` 0.05 0.2 0 - 
         - `-singleton` 1 - excludes singletons, used in the main analysis and omitted in supplementary analysis
         - an overview of other PyRate settings can be accessed [here](https://github.com/dsilvestro/PyRate/wiki/2.-PyRate:-command-list#main-analysis-settings)
-    - *input* - *_PyRate.py file generated in Step 2. and a .txt file containing starting and ending points of geological stages in Myr, which is provided [here](https://github.com/Pimiento-Research-Group/Diversification_rates_and_Age-dependent_extinction/tree/master/data) as ages.txt
-    - *output* - 
+    - *input* - *_PyRate.py file generated in Script 2. and a .txt file containing starting and ending points of geological stages in Myr, which is provided [here](https://github.com/Pimiento-Research-Group/Diversification_rates_and_Age-dependent_extinction/tree/master/data) as ages.txt, this file is required for the `-qShift` parameter
+    - *output* - for each replicate produced in Script 2. the following files are generated - *_ex_rates.log, *_sp_rates.log, *_mcmc.log and *_sum.txt, here we had 10 replicates, so 40 output files in total are produced
+  3.2 **Output processing**
+      1. Combine the .log files into a single set of posterior values using the `-combLogRJ` command.
+         - *input* - a path to the directory where the outputs from Script 3.1. are saved
+         - *output* - 3 files - combined_10_mcmc.log, combined_10_ex_rates.log and combined_10_sp_rates.log
+      2. Generate an .R script containing the mean rates and 95% CIs required for calculations and plotting using the `-plotRJ` command. This script also generates a default PyRate plot of the rates.
+         - the following setting were used:
+           - `-tag` combined - only use the combined posteriors, if not used a plot will be generated for each mcmc.log file in the directory
+           - `-grid_plot` 0.1 - calculate the rate for each 0.1 Myr 
+           - `-b` 0.1 - treat the first 10% of samples as burnin (ignore them)
+         - *input* - a path to the directory where the outputs from Script 3.1. are saved or to the directory where the combined files are saved, if different
+         - *output* - RTT_plots.r script and a .pdf plot
+      3. Estimate speciation and extinction times using the `-ginput` command
+         - *input* - combined_10_mcmc.log file
+         - *output* - *_se_est.txt file containing the speciation and extinction times in Myr for each taxon in the dataset
+  3.3. **Output cleaning**
+      - this is an optional step created for a scenario in which the formatting of the output files isn't correct which may happen when using an HPC Cluster (see not directly in the script)
+      - if required this step should be done before step 3.2.
 
 
 
