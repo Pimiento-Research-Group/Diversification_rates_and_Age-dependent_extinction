@@ -1,4 +1,4 @@
-# 145-million-year global reconstruction of neoselachian diversification reveals new extinction events and persistent age-dependency 
+# New global extinction events and persistent age-dependency in sharks and rays
 
 This repository contains the code and data for the analyses presented in the manuscript:
 
