@@ -2,7 +2,7 @@
 
 This repository contains the code and data for the analyses presented in the manuscript:
 
-**"145-million-year global reconstruction of neoselachian diversification reveals new extinction events and persistent age-dependency"**  
+**"New global extinction events and persistent age-dependency in sharks and rays"**  
 **Kristína Kocáková<sup>1*</sup>, Daniele Silvestro<sup>2,3,4*</sup>, Gregor Mathes<sup>1,5</sup>, Jaime A. Villafaña<sup>6</sup>, Catalina Pimiento<sup>*1,7</sup>**  
 
 <sup>1</sup>Department of Paleontology, University of Zurich, Zurich, 8006, Switzerland<br />
