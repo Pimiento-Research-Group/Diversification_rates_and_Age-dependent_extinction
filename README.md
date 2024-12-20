@@ -3,7 +3,7 @@
 This repository contains the code and data for the analyses presented in the manuscript:
 
 **"New global extinction events and persistent age-dependency in sharks and rays"**  
-**Kristína Kocáková<sup>1*</sup>, Daniele Silvestro<sup>2,3,4*</sup>, Gregor Mathes<sup>1,5</sup>, Jaime A. Villafaña<sup>6</sup>, Catalina Pimiento<sup>*1,7</sup>**  
+**Kristína Kocáková<sup>1\*</sup>, Daniele Silvestro<sup>2,3,4\*</sup>, Gregor Mathes<sup>1,5</sup>, Jaime A. Villafaña<sup>6</sup>, Catalina Pimiento<sup>1,7\*</sup>**  
 
 <sup>1</sup>Department of Paleontology, University of Zurich, Zurich, 8006, Switzerland<br />
 <sup>2</sup>Department of Biology, University of Fribourg, Fribourg, 1700, Switzerland<br />
