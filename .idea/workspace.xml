@@ -4,9 +4,10 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="cdb6076a-101b-416a-977a-b1dd6993ce8f" name="Changes" comment="uncommented function to save the rates in a file">
+    <list default="true" id="cdb6076a-101b-416a-977a-b1dd6993ce8f" name="Changes" comment="added notes for checking origination">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/code/5.find_ext_events.py" beforeDir="false" afterPath="$PROJECT_DIR$/code/5.find_ext_events.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/code/1.pyrate_input_step1.py" beforeDir="false" afterPath="$PROJECT_DIR$/code/1.pyrate_input_step1.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/code/2.pyrate_input_step2.R" beforeDir="false" afterPath="$PROJECT_DIR$/code/2.pyrate_input_step2.R" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -24,6 +25,18 @@
   <component name="Git.Settings">
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
   </component>
+  <component name="GitHubPullRequestSearchHistory">{
+  &quot;lastFilter&quot;: {
+    &quot;state&quot;: &quot;OPEN&quot;,
+    &quot;assignee&quot;: &quot;Kristina-K12&quot;
+  }
+}</component>
+  <component name="GithubPullRequestsUISettings">{
+  &quot;selectedUrlAndAccountId&quot;: {
+    &quot;url&quot;: &quot;https://github.com/Kristina-K12/Diversification_rates_and_Age-dependent_extinction.git&quot;,
+    &quot;accountId&quot;: &quot;d855557c-7f94-4f34-98e0-018e156671a6&quot;
+  }
+}</component>
   <component name="ProjectColorInfo">{
   &quot;associatedIndex&quot;: 2
 }</component>
@@ -33,12 +46,12 @@
     <option name="hideEmptyMiddlePackages" value="true" />
     <option name="showLibraryContents" value="true" />
   </component>
-  <component name="PropertiesComponent">{
-  &quot;keyToString&quot;: {
-    &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
-    &quot;settings.editor.selected.configurable&quot;: &quot;com.jetbrains.python.configuration.PyIntegratedToolsModulesConfigurable&quot;
+  <component name="PropertiesComponent"><![CDATA[{
+  "keyToString": {
+    "RunOnceActivity.ShowReadmeOnStart": "true",
+    "settings.editor.selected.configurable": "preferences.pluginManager"
   }
-}</component>
+}]]></component>
   <component name="SharedIndexes">
     <attachedChunks>
       <set>
@@ -143,7 +156,15 @@
       <option name="project" value="LOCAL" />
       <updated>1734086933643</updated>
     </task>
-    <option name="localTasksCounter" value="12" />
+    <task id="LOCAL-00012" summary="added notes for checking origination">
+      <option name="closed" value="true" />
+      <created>1734087325240</created>
+      <option name="number" value="00012" />
+      <option name="presentableId" value="LOCAL-00012" />
+      <option name="project" value="LOCAL" />
+      <updated>1734087325240</updated>
+    </task>
+    <option name="localTasksCounter" value="13" />
     <servers />
   </component>
   <component name="VcsManagerConfiguration">
@@ -155,6 +176,7 @@
     <MESSAGE value="added pre-trained models and PyRate input files" />
     <MESSAGE value="added ages.txt" />
     <MESSAGE value="uncommented function to save the rates in a file" />
-    <option name="LAST_COMMIT_MESSAGE" value="uncommented function to save the rates in a file" />
+    <MESSAGE value="added notes for checking origination" />
+    <option name="LAST_COMMIT_MESSAGE" value="added notes for checking origination" />
   </component>
 </project>

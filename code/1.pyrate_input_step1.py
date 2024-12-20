@@ -6,13 +6,11 @@ Create an input file (.txt) from an .xlsx file, which is then used to generate a
 If adenn = True then the .txt file will simply not contain the collection number, which is required for the file to be used as an ADE-NN input
 """
 
+import os
 from pandas import *
 
-
 def pyrate_input(path_to_database, taxonomic_rank, path_to_output, adenn = False):
-    database = ExcelFile(path_to_database)
-    occurrences = read_excel(database, "Occurrences")
-
+    occurrences = read_csv(path_to_database)
 
     # SELECT ONLY THE VALID ENTRIES (considering both age and taxonomy)
 
@@ -70,5 +68,6 @@ def pyrate_input(path_to_database, taxonomic_rank, path_to_output, adenn = False
 
 
 
-pyrate_input("/Users/kristinakocakova/Dropbox/Analyses/Data/Master files/fins.xlsx", "species",
-             "//data/all_species/all_species_input.txt")
+path = os.getcwd()
+pyrate_input(path + "/data/occurrences.csv", "species",
+             path + "/data/all_species_input.txt")
