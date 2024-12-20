@@ -1,9 +1,9 @@
-# 145-million-year global reconstruction of neoselachian diversification reveals new extinction events and persistent age-dependency 
+# New global extinction events and persistent age-dependency in sharks and rays
 
 This repository contains the code and data for the analyses presented in the manuscript:
 
-**"145-million-year global reconstruction of neoselachian diversification reveals new extinction events and persistent age-dependency"**  
-**Kristína Kocáková<sup>1*</sup>, Daniele Silvestro<sup>2,3,4*</sup>, Gregor Mathes<sup>1,5</sup>, Jaime A. Villafaña<sup>6</sup>, Catalina Pimiento<sup>*1,7</sup>**  
+**"New global extinction events and persistent age-dependency in sharks and rays"**  
+**Kristína Kocáková<sup>1\*</sup>, Daniele Silvestro<sup>2,3,4\*</sup>, Gregor Mathes<sup>1,5</sup>, Jaime A. Villafaña<sup>6</sup>, Catalina Pimiento<sup>1,7\*</sup>**  
 
 <sup>1</sup>Department of Paleontology, University of Zurich, Zurich, 8006, Switzerland<br />
 <sup>2</sup>Department of Biology, University of Fribourg, Fribourg, 1700, Switzerland<br />
@@ -39,7 +39,7 @@ This repository contains the scripts used to estimate rates of extinction and sp
 ## Usage notes
 
 The PyRate program is required for a portion of the analyses in this study, the program and the instruction on how to compile it can be found in [this repository](https://github.com/dsilvestro/PyRate).
-
+### Diversification rates
 1. [**PyRate input step 1.**](https://github.com/Pimiento-Research-Group/Diversification_rates_and_Age-dependent_extinction/blob/master/code/1.pyrate_input_step1.py)
   - filters the FINS dataset to produce a .txt file usable by the PyRate program, for an example of a PyRate input file see [this repository](https://github.com/dsilvestro/PyRate/wiki/1.-Preparing-input-file)
   - *input* - Occurrences data from the FINS Dataset openly accessible [here](https://zenodo.org/uploads/13983668)
@@ -75,7 +75,7 @@ The PyRate program is required for a portion of the analyses in this study, the 
   1. Combine the .log files into a single set of posterior values using the `-combLogRJ` command.
      - *input* - a path to the directory where the outputs from Script 3.1. are saved
      - *output* - 3 files - combined_10_mcmc.log, combined_10_ex_rates.log and combined_10_sp_rates.log
-  2. Generate an .R script containing the mean rates and 95% CIs required for calculations and plotting using the `-plotRJ` command. This script also generates a default PyRate plot of the rates.
+  2. Generate an .r script containing the mean rates and 95% CIs required for calculations and plotting using the `-plotRJ` command. This script also generates a default PyRate plot of the rates.
      - the following setting were used:
        - `-tag` combined - only use the combined posteriors, if not used a plot will be generated for each mcmc.log file in the directory
        - `-grid_plot` 0.1 - calculate the rate for each 0.1 Myr 
@@ -86,19 +86,74 @@ The PyRate program is required for a portion of the analyses in this study, the 
      - *input* - combined_10_mcmc.log file
      - *output* - *_se_est.txt file containing the speciation and extinction times in Myr for each taxon in the dataset
 - 3.3. [**Output cleaning**](https://github.com/Pimiento-Research-Group/Diversification_rates_and_Age-dependent_extinction/blob/master/code/3.3.clean_pyrate_output.py)
-  - this is an optional step created for a scenario in which the formatting of the output files isn't correct which may happen when using an HPC Cluster (see not directly in the script)
-  - if required this step should be done before step 3.2.
+  - this is an optional step created for a scenario in which the formatting of the output files isn't correct, which may happen when using an HPC Cluster (see notes directly in the script)
+  - if required, this step should be done before step 3.2.
 4. [**Plot the diversification rates**](https://github.com/Pimiento-Research-Group/Diversification_rates_and_Age-dependent_extinction/blob/master/code/4.plot_rates.py)
-5. d
-6. d
-7. d
-8. d
-9. d
-10. d
-11. d
-12. d
-13. d
-14. d
+  - plot diversification rates, produces figures 1., S1, S2 and S3
+  - *input* - RTT_plots.r file generated in Script 3.2.
+  - *output* - .pdf plots and an .xlsx file containing the rates at each 0.1 Myr
+5. [**Find extinction and origination events**](https://github.com/Pimiento-Research-Group/Diversification_rates_and_Age-dependent_extinction/blob/master/code/5.find_ext_events.py)
+  - this script prints the time periods in Myrs where the extinction or origination rate reaches the intensity specified
+  - the intesity of interest is defined in the `time_ext[rate_ext > 3*harm_mean]` line, here we looked for events of moderate intesity (i.e. at least 3 times higher than background), and intense intesity (i.e. at least 6 times higher than background, `time_ext[rate_ext > 6*harm_mean]`)
+  - *input* - RTT_plots.r file generated in Script 3.2.
+  - *output* - Myrs during which the desired level of rate intensity was reached, these will be printed in the console
+---
+### Age-dependent extinction (ADE)
+6.  [**Train and evaluate ADE-NN models**](https://github.com/Pimiento-Research-Group/Diversification_rates_and_Age-dependent_extinction/blob/master/code/6.model_training.py)
+   - this script contains all the functions to simulate data, train, validate, test and save the ADE-NN models, and also to evaluate the performance of the models
+   - **IMPORTANT**: The current version of the script produces the models in a Keras 2 format, which is not readable by Keras 3, therefore an environment with Keras 2 is needed. Alternative scripts producing models in a format compatible with Keras 3 will be added in the future.
+   - *input* - none
+   - *output* - 4 directories, each containing a trained model - a classifier and a predictive model for each of the three ADE types (ADE0, ADE1, ADE2 - see manuscript)
+   - *Note*: This step can be skipped, pre-trained models are available [here](https://github.com/Pimiento-Research-Group/Diversification_rates_and_Age-dependent_extinction/tree/master/data)
+7. [**Predict ADE in empirical data**](https://github.com/Pimiento-Research-Group/Diversification_rates_and_Age-dependent_extinction/blob/master/code/7.estimate_ADE.py)
+  - estimate the class of ADE and the Weibull distribution shape parameters describing the distribution of longevities within a given time bin, including the prediction error. Sample size of each time bin is printed in the console during the estimation process
+  - *inputs*:
+    - path to the directories containing the trained models
+        - pre-trained models used in this study are available [here](https://github.com/Pimiento-Research-Group/Diversification_rates_and_Age-dependent_extinction/tree/master/data)
+    - path to the ADE-NN input file - a .txt file generated using Script 1. and applying the `adenn = True` argument
+    - a list defining the time bins of interest - this list can be based on extinction regimes defined in Script 5, or can represent any arbitrary time bins, such as geological epochs or stages
+        - in this study we used the following time bins:
+          - global species assemblage extinction regimes (results presented in Figure 3 and S4) - `time_slice = [[145, 95.610], [95.610, 83.502], [83.502, 73.096], [73.096, 71.995], [66.591, 65.791], [65.791, 55.785], [55.785, 38.774], [38.774, 33.471], [33.471, 3.452], [3.452, 0.01]]`
+          - Cretaceous + Cenozoic (Figure 5a) - `time_slice = [[145, 0.01]]`
+          - Geological periods (Figure 5b+c) - `time_slice = [[145, 66], [66, 23.03], [23.03, 0.01]]`
+          - time bins used in [Guinot & Condamine 2023](https://www.science.org/doi/10.1126/science.abn2080?url_ver=Z39.88-2003&rfr_id=ori:rid:crossref.org&rfr_dat=cr_pub%20%200pubmed) (Figure S6) - `time_slice = [[93.9, 66],[72.1, 66], [66, 56]]`
+    - *output* - a 3D array containing the estimated values, saved as a .npy file, first dimension will reflect the number of time bins, second will reflect the number of replicates (we use 100), third is fixed (21 sets of values are estimated by the prediction function)
+8. [**Estimate extinction rate as a function of age**](https://github.com/Pimiento-Research-Group/Diversification_rates_and_Age-dependent_extinction/blob/master/code/8.calculate_ext_rate.py)
+    - calculate extinction rates based on the Weibull shape parameter modelled in Script 7.
+    - *input* - *.npy file from Script 7.
+    - *output* - a 3D array of the estimated extinction rates per 0.1 Myr saved as a .npy file. The first two dimensions will be the same as the input file, the third will be the same as the number of subset bins
+9. [**Find Myr representing age categories**](https://github.com/Pimiento-Research-Group/Diversification_rates_and_Age-dependent_extinction/blob/master/code/9.find_age_categories.py)
+    - age categories are used in the plotting scripts below
+    - *input* - .txt file with estimated origination and extinction times from Script 3.2.3
+    - *output* - ages in Myr representing young, middle-aged and elder taxa are printed in the console
+10. [**Plot ADE results**](https://github.com/Pimiento-Research-Group/Diversification_rates_and_Age-dependent_extinction/blob/master/code/10.plot_ADE_results.py)
+    - the script contains 4 sections, each used to plot a figure (Figure 3, S4, S5, S6) - see notes inside the script
+    - *inputs*:
+        - .npy file containing results from Script 7.
+        - .npy file containing results from Script 8.
+        - list of time bins used when generating results of Script 7.
+        - .xlsx file generated in Script 4.
+    - *output* - figures
+11. [**Plot extinction rates as a function of age**](https://github.com/Pimiento-Research-Group/Diversification_rates_and_Age-dependent_extinction/blob/master/code/11.plot_ext_rates.py)
+    - the script contains 2 sections, each used to plot a figure (Figure 4 and S8) - see notes inside the script
+    - *input* - .npy file containing results from Script 8.
+    - *output* - figures
+12. [**Plot distribution of longevities**](https://github.com/Pimiento-Research-Group/Diversification_rates_and_Age-dependent_extinction/blob/master/code/12.plot_longevities.py)
+    - plot Figure S7
+    - *input* - *_se_est.txt file generated in Script 3.2.3
+    - *output* - figures
+13. [**ADE predicted by ADE-Bayes**](https://github.com/Pimiento-Research-Group/Diversification_rates_and_Age-dependent_extinction/blob/master/code/13.ADE_Bayes.sh)
+    - to compare two methodologies ADE was also predicted using an alternative model implemented within the PyRate program, more details [here](https://github.com/dsilvestro/PyRate/blob/master/tutorials/pyrate_tutorial_4.md#age-dependent-extinction-ade-model)
+    - the following settings were used:
+      - `-qShift` /path/to/ages.txt - allow peservation rate to vary in each geological stage (requires a .txt file, see *input* below)
+      - `-filter` 93.9 72.1 - specified the time bin of interest (time bins used were 93.9 72.1, 72.1 66, 66 56)
+    - *input* - PyRate input file generated in Script 2.
+    - *output* - *_mcmc.log file for each time bin
+14. [**Extract results from ADE-Bayes**](https://github.com/Pimiento-Research-Group/Diversification_rates_and_Age-dependent_extinction/blob/master/code/14.ADE_Bayes_results.py)
+    - Obtain the mean estimated Weibull distribution shape + 95 CIs in each time bin
+    - *input* - *_mcmc.log file generated in Script 13.
+    - *output* - a mean shape parameter and 95% CIs printed in the console
+
 
 
 
