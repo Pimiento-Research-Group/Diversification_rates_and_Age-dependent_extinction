@@ -4,28 +4,9 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="cdb6076a-101b-416a-977a-b1dd6993ce8f" name="Changes" comment="adjusted paths">
-      <change afterPath="$PROJECT_DIR$/.idea/rSettings.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/code/15.raw_exploratory_plots.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/code/16.log_odds_survival.py" afterDir="false" />
+    <list default="true" id="cdb6076a-101b-416a-977a-b1dd6993ce8f" name="Changes" comment="analyses with FADs and LADs">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/README.md" beforeDir="false" afterPath="$PROJECT_DIR$/README.md" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/code/1.pyrate_input_step1.py" beforeDir="false" afterPath="$PROJECT_DIR$/code/1.pyrate_input_step1.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/code/10.plot_ADE_results.py" beforeDir="false" afterPath="$PROJECT_DIR$/code/10.plot_ADE_results.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/code/11.plot_ext_rates.py" beforeDir="false" afterPath="$PROJECT_DIR$/code/11.plot_ext_rates.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/code/12.plot_longevities.py" beforeDir="false" afterPath="$PROJECT_DIR$/code/12.plot_longevities.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/code/13.ADE_Bayes.sh" beforeDir="false" afterPath="$PROJECT_DIR$/code/13.ADE_Bayes.sh" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/code/14.ADE_Bayes_results.py" beforeDir="false" afterPath="$PROJECT_DIR$/code/14.ADE_Bayes_results.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/code/2.pyrate_input_step2.R" beforeDir="false" afterPath="$PROJECT_DIR$/code/2.pyrate_input_step2.R" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/code/3.1.calculate_rates.sh" beforeDir="false" afterPath="$PROJECT_DIR$/code/3.1.calculate_rates.sh" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/code/3.2.process_pyrate_output.sh" beforeDir="false" afterPath="$PROJECT_DIR$/code/3.2.process_pyrate_output.sh" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/code/3.3.clean_pyrate_output.py" beforeDir="false" afterPath="$PROJECT_DIR$/code/3.3.clean_pyrate_output.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/code/4.plot_rates.py" beforeDir="false" afterPath="$PROJECT_DIR$/code/4.plot_rates.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/code/5.find_ext_events.py" beforeDir="false" afterPath="$PROJECT_DIR$/code/5.find_ext_events.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/code/6.model_training.py" beforeDir="false" afterPath="$PROJECT_DIR$/code/6.model_training.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/code/7.estimate_ADE.py" beforeDir="false" afterPath="$PROJECT_DIR$/code/7.estimate_ADE.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/code/8.calculate_ext_rate.py" beforeDir="false" afterPath="$PROJECT_DIR$/code/8.calculate_ext_rate.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/code/9.find_age_categories.py" beforeDir="false" afterPath="$PROJECT_DIR$/code/9.find_age_categories.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/code/16.log_odds_survival.py" beforeDir="false" afterPath="$PROJECT_DIR$/code/16.log_odds_survival.py" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -193,7 +174,23 @@
       <option name="project" value="LOCAL" />
       <updated>1734690308232</updated>
     </task>
-    <option name="localTasksCounter" value="14" />
+    <task id="LOCAL-00014" summary="updated to anonymise">
+      <option name="closed" value="true" />
+      <created>1750326539794</created>
+      <option name="number" value="00014" />
+      <option name="presentableId" value="LOCAL-00014" />
+      <option name="project" value="LOCAL" />
+      <updated>1750326539794</updated>
+    </task>
+    <task id="LOCAL-00015" summary="analyses with FADs and LADs">
+      <option name="closed" value="true" />
+      <created>1750326563134</created>
+      <option name="number" value="00015" />
+      <option name="presentableId" value="LOCAL-00015" />
+      <option name="project" value="LOCAL" />
+      <updated>1750326563134</updated>
+    </task>
+    <option name="localTasksCounter" value="16" />
     <servers />
   </component>
   <component name="VcsManagerConfiguration">
@@ -207,6 +204,8 @@
     <MESSAGE value="uncommented function to save the rates in a file" />
     <MESSAGE value="added notes for checking origination" />
     <MESSAGE value="adjusted paths" />
-    <option name="LAST_COMMIT_MESSAGE" value="adjusted paths" />
+    <MESSAGE value="updated to anonymise" />
+    <MESSAGE value="analyses with FADs and LADs" />
+    <option name="LAST_COMMIT_MESSAGE" value="analyses with FADs and LADs" />
   </component>
 </project>
