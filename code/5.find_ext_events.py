@@ -1,6 +1,5 @@
 """
 Project: Diversification Rates and ADE
-Author: Kristína Kocáková
 Description:
 Calculate the background rate and identify times when the mean rate reaches at least 3 or 6 times the background
 """
@@ -12,7 +11,7 @@ np.set_printoptions(suppress=True, precision=3)
 
 def extract_ext_rate(directory):
     r = read_csv(
-        "/Users/kristinakocakova/PycharmProjects/Diversification_and_Age-dependent_Extinction/data/all_species{i}/RTT_plots.r".format(
+        "/path_to_pyrate_output_folder/RTT_plots.r".format(
             i=directory), sep="\t", header=None)
 
     def convert(object):

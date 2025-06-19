@@ -1,6 +1,5 @@
 """
 Project: Diversification Rates and ADE
-Author: Kristína Kocáková
 Description:
 Optional scripts.
 1. In case PyRate output mcmm.log files weren't formatted correctly (sometimes happens when using Cluster)
@@ -19,7 +18,7 @@ def rm_lines(file_name):
 
     # read the file and skip lines which have incorrect formatting (i.e. too many columns)
     log = read_csv(
-        "/Users/kristinakocakova/Dropbox/Kristina_PhD/Analyses/PyRate/PyRate_Analysis/outputs/2024/all_sp_fast_burn/all_species_15Myr_{i}_Grj_mcmc.log".format( i=file_name), sep="\t", header=None, on_bad_lines='skip')
+        "/path_to_pyrate_output_folder/all_species_15Myr_{i}_Grj_mcmc.log".format( i=file_name), sep="\t", header=None, on_bad_lines='skip')
 
     # remove lines which are too short (i.e. have nan in them)
 
@@ -27,14 +26,14 @@ def rm_lines(file_name):
 
     # save the modified file
 
-    log.to_csv("/Users/kristinakocakova/Dropbox/Kristina_PhD/Analyses/PyRate/PyRate_Analysis/outputs/2024/all_sp_fast_burn/modded/all_species_15Myr_{i}_Grj_mcmc.log".format(i = file_name), sep="\t", header=None, index = None)
+    log.to_csv("/path_to_pyrate_output_folder/all_species_15Myr_{i}_Grj_mcmc.log".format(i = file_name), sep="\t", header=None, index = None)
 
 for i in file_name:
     rm_lines(i)
 
 # 2. Fix incorrectly formatted numbers
 
-log = open("/Users/kristinakocakova/Dropbox/Kristina_PhD/Analyses/PyRate/PyRate_Analysis/outputs/2024/all_sp_fast_burn/combined_10_sp_rates.log", "r")
+log = open("/path_to_pyrate_output_folder/combined_10_sp_rates.log", "r")
 
 log_lines = log.readlines()
 
@@ -46,7 +45,7 @@ for i in log_lines:
     else:
         log_lines_clean.append(i)
 
-with open("/Users/kristinakocakova/Dropbox/Kristina_PhD/Analyses/PyRate/PyRate_Analysis/outputs/2024/all_sp_fast_burn/mod_combined_10_sp_rates.log", "w") as f:
+with open("/path_to_pyrate_output_folder/mod_combined_10_sp_rates.log", "w") as f:
     for line in log_lines_clean:
         f.write(f"{line}")
 
@@ -55,9 +54,9 @@ with open("/Users/kristinakocakova/Dropbox/Kristina_PhD/Analyses/PyRate/PyRate_A
 
 from pandas import *
 
-te_ts = read_csv("/path/to/_se_est.txt", sep="\t")
+te_ts = read_csv("/path_to/_se_est.txt", sep="\t")
 
-species = read_csv("/path/to/_mcmc.log", sep="\t", )
+species = read_csv("/path_to/_mcmc.log", sep="\t", )
 columns = species.columns.to_list()  # put the column headers in a list
 
 species_names = []  # empty list
@@ -74,7 +73,7 @@ for i in range(len(species_names)):
 te_ts["species"] = species_names  # add the species names list as a column to the se_ext.txt file
 
 # write the new file
-te_ts.to_csv("/path/to/output.txt", sep="\t")
+te_ts.to_csv("/path_to_pyrate_output_folder/output.txt", sep="\t")
 
 
 

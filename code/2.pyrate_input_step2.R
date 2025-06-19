@@ -1,6 +1,5 @@
 #
 #Project: Diversification Rates and ADE
-#Author: Kristína Kocáková
 #Description:
 #Produce a final version of PyRate input file using the initial .txt file created in step 1
 #

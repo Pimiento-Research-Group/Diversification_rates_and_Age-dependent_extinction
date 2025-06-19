@@ -1,6 +1,5 @@
 """
 Project: Diversification Rates and ADE
-Author: Kristína Kocáková
 Description:
 Create an input file (.txt) from an .xlsx file, which is then used to generate a PyRate input file (script 2.), options for species and genus level filtering
 If adenn = True then the .txt file will simply not contain the collection number, which is required for the file to be used as an ADE-NN input
@@ -71,3 +70,5 @@ def pyrate_input(path_to_database, taxonomic_rank, path_to_output, adenn = False
 path = os.getcwd()
 pyrate_input(path + "/data/occurrences.csv", "species",
              path + "/data/all_species_input.txt")
+pyrate_input(path + "/data/occurrences.csv", "genus",
+             path + "/data/all_genus_input.txt")

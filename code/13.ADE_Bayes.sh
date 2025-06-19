@@ -1,6 +1,5 @@
 : '
 Project: Diversification Rates and ADE
-Author: Kristína Kocáková
 Description:
 Estimation of the Weibull distribution shape parameter using the ADE-Bayes method
 -filter_lad argument needs to be changed to the appropriate value to represent the time bin of interest

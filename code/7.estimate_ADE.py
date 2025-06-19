@@ -1,6 +1,5 @@
 """
 Project: Diversification Rates and ADE
-Author: Kristína Kocáková
 Description:
 Prediction of the Weibull distribution shape parameter based on empirical data using the trained models created in script 6.
 """
@@ -764,14 +763,14 @@ def pipeline(f, n_predictions, time_slice=None):
 
 if __name__ == "__main__":
     #Load models
-    wd_model = "/Users/kristinakocakova/Dropbox/Kristina_PhD/Analyses/PyRate/PyRate_Analysis/ADE_NN/final/"
+    wd_model = "/path_to_model_folder/"
     model_shape_1 = tf.keras.models.load_model(wd_model + "rnn_modelhistory_shape_1")
     model_single_shape = tf.keras.models.load_model(wd_model + "rnn_modelhistory_single_shape")
     model_two_shapes = tf.keras.models.load_model(wd_model + "rnn_modelhistory_two_shapes")
     model_clas = tf.keras.models.load_model(wd_model + "rnn_modelhistory_clas")
 
     #input file
-    f = ("/Users/kristinakocakova/Dropbox/Kristina_PhD/Analyses/PyRate/PyRate_Analysis/inputs/2024/ADE-NN/lamni.txt")
+    f = ("/path_to_input_file/Data_S1.txt")
 
     n_predictions = 100
 
@@ -787,5 +786,5 @@ if __name__ == "__main__":
     for i in range(len(time_slice)):
         data[i, :, :], rmse_1[i,], rmse_2_1[i,], rmse_2_2[i,] = pipeline(f, n_predictions, time_slice[i])
 
-    f1 = os.path.join("/Users/kristinakocakova/Dropbox/Kristina_PhD/Analyses/PyRate/PyRate_Analysis/outputs/2024/ADE-NN_10_2024/selachi_ADE2.npy")
+    f1 = os.path.join("/path_to_adenn_output_folder/species_ADENN.npy")
     np.save(file=f1, arr=data)

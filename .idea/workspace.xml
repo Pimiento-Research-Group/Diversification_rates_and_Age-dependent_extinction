@@ -4,10 +4,28 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="cdb6076a-101b-416a-977a-b1dd6993ce8f" name="Changes" comment="added notes for checking origination">
+    <list default="true" id="cdb6076a-101b-416a-977a-b1dd6993ce8f" name="Changes" comment="adjusted paths">
+      <change afterPath="$PROJECT_DIR$/.idea/rSettings.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/code/15.raw_exploratory_plots.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/code/16.log_odds_survival.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/README.md" beforeDir="false" afterPath="$PROJECT_DIR$/README.md" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/code/1.pyrate_input_step1.py" beforeDir="false" afterPath="$PROJECT_DIR$/code/1.pyrate_input_step1.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/code/10.plot_ADE_results.py" beforeDir="false" afterPath="$PROJECT_DIR$/code/10.plot_ADE_results.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/code/11.plot_ext_rates.py" beforeDir="false" afterPath="$PROJECT_DIR$/code/11.plot_ext_rates.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/code/12.plot_longevities.py" beforeDir="false" afterPath="$PROJECT_DIR$/code/12.plot_longevities.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/code/13.ADE_Bayes.sh" beforeDir="false" afterPath="$PROJECT_DIR$/code/13.ADE_Bayes.sh" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/code/14.ADE_Bayes_results.py" beforeDir="false" afterPath="$PROJECT_DIR$/code/14.ADE_Bayes_results.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/code/2.pyrate_input_step2.R" beforeDir="false" afterPath="$PROJECT_DIR$/code/2.pyrate_input_step2.R" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/code/3.1.calculate_rates.sh" beforeDir="false" afterPath="$PROJECT_DIR$/code/3.1.calculate_rates.sh" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/code/3.2.process_pyrate_output.sh" beforeDir="false" afterPath="$PROJECT_DIR$/code/3.2.process_pyrate_output.sh" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/code/3.3.clean_pyrate_output.py" beforeDir="false" afterPath="$PROJECT_DIR$/code/3.3.clean_pyrate_output.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/code/4.plot_rates.py" beforeDir="false" afterPath="$PROJECT_DIR$/code/4.plot_rates.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/code/5.find_ext_events.py" beforeDir="false" afterPath="$PROJECT_DIR$/code/5.find_ext_events.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/code/6.model_training.py" beforeDir="false" afterPath="$PROJECT_DIR$/code/6.model_training.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/code/7.estimate_ADE.py" beforeDir="false" afterPath="$PROJECT_DIR$/code/7.estimate_ADE.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/code/8.calculate_ext_rate.py" beforeDir="false" afterPath="$PROJECT_DIR$/code/8.calculate_ext_rate.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/code/9.find_age_categories.py" beforeDir="false" afterPath="$PROJECT_DIR$/code/9.find_age_categories.py" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -46,16 +64,19 @@
     <option name="hideEmptyMiddlePackages" value="true" />
     <option name="showLibraryContents" value="true" />
   </component>
-  <component name="PropertiesComponent"><![CDATA[{
-  "keyToString": {
-    "RunOnceActivity.ShowReadmeOnStart": "true",
-    "settings.editor.selected.configurable": "preferences.pluginManager"
+  <component name="PropertiesComponent">{
+  &quot;keyToString&quot;: {
+    &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
+    &quot;RunOnceActivity.git.unshallow&quot;: &quot;true&quot;,
+    &quot;SHARE_PROJECT_CONFIGURATION_FILES&quot;: &quot;true&quot;,
+    &quot;git-widget-placeholder&quot;: &quot;master&quot;,
+    &quot;settings.editor.selected.configurable&quot;: &quot;preferences.pluginManager&quot;
   }
-}]]></component>
+}</component>
   <component name="SharedIndexes">
     <attachedChunks>
       <set>
-        <option value="bundled-python-sdk-5b207ade9991-746f403e7f0c-com.jetbrains.pycharm.community.sharedIndexes.bundled-PC-241.17890.14" />
+        <option value="bundled-python-sdk-4f4e415b4190-aa17d162503b-com.jetbrains.pycharm.community.sharedIndexes.bundled-PC-243.26053.29" />
       </set>
     </attachedChunks>
   </component>
@@ -164,7 +185,15 @@
       <option name="project" value="LOCAL" />
       <updated>1734087325240</updated>
     </task>
-    <option name="localTasksCounter" value="13" />
+    <task id="LOCAL-00013" summary="adjusted paths">
+      <option name="closed" value="true" />
+      <created>1734690308232</created>
+      <option name="number" value="00013" />
+      <option name="presentableId" value="LOCAL-00013" />
+      <option name="project" value="LOCAL" />
+      <updated>1734690308232</updated>
+    </task>
+    <option name="localTasksCounter" value="14" />
     <servers />
   </component>
   <component name="VcsManagerConfiguration">
@@ -177,6 +206,7 @@
     <MESSAGE value="added ages.txt" />
     <MESSAGE value="uncommented function to save the rates in a file" />
     <MESSAGE value="added notes for checking origination" />
-    <option name="LAST_COMMIT_MESSAGE" value="added notes for checking origination" />
+    <MESSAGE value="adjusted paths" />
+    <option name="LAST_COMMIT_MESSAGE" value="adjusted paths" />
   </component>
 </project>

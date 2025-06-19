@@ -1,8 +1,7 @@
 """
 Project: Diversification Rates and ADE
-Author: Kristína Kocáková
 Description:
-Plotting of figure S7 - longevities distribution
+Plotting of figure S7 - longevities distribution of extinct taxa
 Input file - .txt file generated using the -ginput function inscript 3.2.
 """
 
@@ -38,7 +37,7 @@ for i in range(len(lst)):
         ax1 = ax[3, indx_lst[i]]
     else:
         ax1 = ax[4, indx_lst[i]]
-    te_ts_sp = read_csv("/Users/kristinakocakova/Dropbox/Kristina_PhD/Analyses/PyRate/PyRate_Analysis/outputs/2024/fast_burnin_10_2024/{i}/se_est.txt".format(i=lst[i]), sep="\t")
+    te_ts_sp = read_csv("/path_to_pyrate_output_folder/{i}/se_est.txt".format(i=lst[i]), sep="\t")
 
     te_ts_sp = te_ts_sp.loc[te_ts_sp["te"] != 0]
 

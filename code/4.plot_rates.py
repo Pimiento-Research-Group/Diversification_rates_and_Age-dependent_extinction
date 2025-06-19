@@ -1,6 +1,5 @@
 """
 Project: Diversification Rates and ADE
-Author: Kristína Kocáková
 Description:
 Function to produce a plot of extinction, speciation and net diversification, and to save the estimated rates in an .xlsx file
 Input file - .R script generated using the -plotRJ
@@ -20,7 +19,7 @@ plt.rcParams['svg.fonttype'] = 'none'
 
 def plot(file_name):
 
-    r = read_csv("/Users/kristinakocakova/Dropbox/Kristina_PhD/Analyses/PyRate/PyRate_Analysis/outputs/2024/fast_burnin_10_2024/{i}/RTT_plots.r".format(i = file_name), sep="\t", header= None)
+    r = read_csv("/path_to_pyrate_output_folder/{i}/RTT_plots.r".format(i = file_name), sep="\t", header= None)
 
     # CONVERT PYRATE GENERATED R FILE INTO PYTHON LISTS OF SPECIATION AND EXTINCTION RATE VALUES
     def convert(object):
@@ -211,7 +210,7 @@ def plot(file_name):
                       columns=['Time_s', 'Rate_s', "HPD_Min_s", "HPD_Max_s", "Time_e", "Rate_e", "HPD_Min_e", "HPD_Max_e"])
 
 
-    df.to_excel("/Users/kristinakocakova/PycharmProjects/Diversification_and_Age-dependent_Extinction/data/all_species_{i}/rates.xlsx".format(i=file_name))
+    df.to_excel("/path_to_pyrate_output_folder/{i}/rates.xlsx".format(i=file_name))
 
     # fig.savefig("/Users/kristinakocakova/PycharmProjects/Diversification_and_Age-dependent_Extinction/figures/all_species_{i}/rates_{i}.pdf".format(i=file_name), bbox_inches='tight')
 
@@ -222,7 +221,7 @@ def plot(file_name):
 
 # Individual rate shifts
 
-r = read_csv("/Users/kristinakocakova/Dropbox/Kristina_PhD/Analyses/PyRate/PyRate_Analysis/outputs/2024/fast_burnin_10_2024/{i}/RTT_plots.r".format(i = file_name), sep="\t", header= None)
+r = read_csv("/path_to_pyrate_output_folder/{i}/RTT_plots.r".format(i = file_name), sep="\t", header= None)
 
 # CONVERT PYRATE GENERATED R FILE INTO PYTHON LISTS OF SPECIATION AND EXTINCTION RATE VALUES
 def convert(object):

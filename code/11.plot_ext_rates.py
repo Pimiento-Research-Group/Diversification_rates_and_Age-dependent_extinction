@@ -1,6 +1,5 @@
 """
 Project: Diversification Rates and ADE
-Author: Kristína Kocáková
 Description:
 Plot extinction rates calculated in Script 8
 Plot Figure 4, S8
@@ -20,9 +19,9 @@ import itertools
 ##########
 
 #data calculated for species in a single bin (145 - 0.01)
-rates_single = np.load("/Users/kristinakocakova/Dropbox/Kristina_PhD/Analyses/PyRate/PyRate_Analysis/outputs/2024/ADE-NN_10_2024/species_rates_single_bin.npy")
+rates_single = np.load("/path_to_adenn_output_folder/species_rates_single_bin.npy")
 rates_single = rates_single[:, :, 5:850]
-subset_bins_single = np.load("/Users/kristinakocakova/Dropbox/Kristina_PhD/Analyses/PyRate/PyRate_Analysis/outputs/2024/ADE-NN_10_2024/species_subset_bins_10_bins.npy")
+subset_bins_single = np.load("/path_to_adenn_output_folder/species_subset_bins_10_bins.npy")
 subset_bins_single = subset_bins_single[5:850]
 mean_rates_single = np.mean(rates_single, axis = 1)
 
@@ -34,8 +33,8 @@ mean_cats_single = np.mean(mean_cats_single, axis = 0)
 
 #data calculated for 10 bins based on extinction regime
 
-rates = np.load("/Users/kristinakocakova/Dropbox/Kristina_PhD/Analyses/PyRate/PyRate_Analysis/outputs/2024/ADE-NN_10_2024/species_rates_10_bins.npy")
-ages = np.load("/Users/kristinakocakova/Dropbox/Kristina_PhD/Analyses/PyRate/PyRate_Analysis/outputs/2024/ADE-NN_10_2024/species_subset_bins_10_bins.npy")
+rates = np.load("/path_to_adenn_output_folder/species_rates_10_bins.npy")
+ages = np.load("/path_to_adenn_output_folder/species_subset_bins_10_bins.npy")
 mean_rates = np.mean(rates, axis = 1)
 mean_rates = np.log(mean_rates)
 
@@ -148,9 +147,9 @@ plt.tight_layout()
 #Figure S8
 ##########
 
-rates = np.load("/Users/kristinakocakova/Dropbox/Kristina_PhD/Analyses/PyRate/PyRate_Analysis/outputs/2024/ADE-NN_10_2024/species_rates_single_bin.npy")
+rates = np.load("/path_to_adenn_output_folder/species_rates_single_bin.npy")
 rates = rates[:, :, 5:850]
-subset_bins = np.load("/Users/kristinakocakova/Dropbox/Kristina_PhD/Analyses/PyRate/PyRate_Analysis/outputs/2024/ADE-NN_10_2024/species_subset_bins_10_bins.npy")
+subset_bins = np.load("/path_to_adenn_output_folder/species_subset_bins_10_bins.npy")
 subset_bins = subset_bins[5:850]
 mean_rates = np.mean(rates, axis = 1)
 

@@ -1,6 +1,5 @@
 """
 Project: Diversification Rates and ADE
-Author: Kristína Kocáková
 Description:
 Calculation of age categories from empirical data - determination which Myr value represents Young, Middle-aged and Elder taxa
 Input file - .txt file generated using the -ginput function inscript 3.2.
@@ -22,7 +21,7 @@ import itertools
 
 #calculate quantiles of ages globally
 
-ages_f = pd.read_csv("/Users/kristinakocakova/Dropbox/Kristina_PhD/Analyses/PyRate/PyRate_Analysis/outputs/all_species_15Myr/combined/combined_10_se_est_species_names.txt", sep = "\t")
+ages_f = pd.read_csv("/path_to_pyrate_output_folder/combined_10_se_est_species_names.txt", sep = "\t")
 
 ages_calc = []
 for i in range(len(ages_f["species"])):

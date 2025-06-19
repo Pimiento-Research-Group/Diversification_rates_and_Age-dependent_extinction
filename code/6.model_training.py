@@ -1,6 +1,5 @@
 """
 Project: Diversification Rates and ADE
-Author: Kristína Kocáková
 Description:
     Data simulation
     Model Training
@@ -427,7 +426,7 @@ if __name__ == '__main__':
                                                     single_shape=True)
 
     # save to files
-    wd = "/Users/kristinakocakova/Dropbox/Kristina_PhD/Analyses/PyRate/PyRate_Analysis/ADE_NN/min_taxa/"
+    wd = "/path_to_model_folder/"
     f1 = os.path.join(wd, "sim_features_mixture.npy")
     f2 = os.path.join(wd, "sim_labels.npy")
     np.save(file=f1, arr=features)
@@ -598,7 +597,7 @@ if __name__ == '__main__':
                                                     two_shapes= True)
 
     # save to files
-    wd = "/Users/kristinakocakova/Dropbox/Kristina_PhD/Analyses/PyRate/PyRate_Analysis/ADE_NN/min_taxa/"
+    wd = "/path_to_model_folder/"
     f1 = os.path.join(wd, "sim_features_mixture.npy")
     f2 = os.path.join(wd, "sim_labels.npy")
     np.save(file=f1, arr=features)
@@ -775,7 +774,7 @@ if __name__ == '__main__':
                                                     mixture= True)
 
     # save to files
-    wd = "/Users/kristinakocakova/Dropbox/Kristina_PhD/Analyses/PyRate/PyRate_Analysis/ADE_NN/final/single_shape/training/"
+    wd = "/path_to_model_folder/single_shape/training/"
     f1 = os.path.join(wd, "sim_features_mixture.npy")
     f2 = os.path.join(wd, "sim_labels.npy")
     np.save(file=f1, arr=features)
@@ -828,7 +827,7 @@ if __name__ == '__main__':
                                                                    two_shapes= False,
                                                                    mixture= True
                                                                    )
-    wd = "/Users/kristinakocakova/Dropbox/Kristina_PhD/Analyses/PyRate/PyRate_Analysis/ADE_NN/final/single_shape/test/"
+    wd = "/path_to_model_folder/single_shape/test/"
     f1 = os.path.join(wd, "sim_features_mixture_test.npy")
     f2 = os.path.join(wd, "sim_labels_test.npy")
     np.save(file=f1, arr=features)
@@ -863,8 +862,8 @@ rescaler = AdeNNrescaler(log_shapes=True,
                          longevities_mul=1,
                          shape_ratio=False)
 
-features_test = np.load("/Users/kristinakocakova/Dropbox/Kristina_PhD/Analyses/PyRate/PyRate_Analysis/ADE_NN/min_taxa/test_sets/noADE/sim_features_500.npy")
-labels_test = np.load("/Users/kristinakocakova/Dropbox/Kristina_PhD/Analyses/PyRate/PyRate_Analysis/ADE_NN/min_taxa/test_sets/noADE/sim_labels_500.npy")
+features_test = np.load("/path_to_model_folder/sim_features_500.npy")
+labels_test = np.load("/path_to_model_folder/sim_labels_500.npy")
 
 pred_test = model_clas.predict(features_test)
 Truth = np.argmax(labels_to_class(labels_test), axis=1)
@@ -971,12 +970,12 @@ def get_rmse(sample_size, model):
 rmse_ADE1 = get_rmse(500, "ADE1")
 rmse_ADE2 = get_rmse(500, "ADE2")
 
-wd = "/Users/kristinakocakova/Dropbox/Kristina_PhD/Analyses/PyRate/PyRate_Analysis/ADE_NN/min_taxa/"
+wd = "/path_to_model_folder/"
 f1 = os.path.join(wd, "rmse_ADE1_500.npy")
 np.save(file=f1, arr=rmse_ADE1)
 
-rmse_ADE1 = np.load("/Users/kristinakocakova/Dropbox/Kristina_PhD/Analyses/PyRate/PyRate_Analysis/ADE_NN/min_taxa/rmse_ADE1_500.npy")
-rmse_ADE2 = np.load("/Users/kristinakocakova/Dropbox/Kristina_PhD/Analyses/PyRate/PyRate_Analysis/ADE_NN/min_taxa/rmse_ADE2_500.npy")
+rmse_ADE1 = np.load("/path_to_model_folder/rmse_ADE1_500.npy")
+rmse_ADE2 = np.load("/path_to_model_folder/rmse_ADE2_500.npy")
 
 #for ADE1
 

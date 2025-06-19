@@ -1,6 +1,5 @@
 : '
 Project: Diversification Rates and ADE
-Author: Kristína Kocáková
 Description:
 Calculation of extinction, speciation, and net diversification rater using PyRate.
 This script was written to be launched in a HPC Cluster, but can be run locally by simply using the last line withouth the srun command

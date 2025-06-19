@@ -27,7 +27,7 @@ import matplotlib.patheffects as pe
 time_slice = [[145, 95.19], [95.19, 83.29], [83.29, 73.18], [73.18, 71.98], [66.48, 65.78], [65.78, 55.97], [55.97, 38.77], [38.77, 33.47], [33.47, 16.15], [16.15, 4.25], [4.25, 0.0117]]
 
 # mean extinction rate plot prep
-rates = pd.read_excel("/Users/kristinakocakova/Dropbox/Kristina_PhD/Analyses/PyRate/PyRate_Analysis/outputs/2024/fast_burnin_10_2024/species/rates.xlsx")
+rates = pd.read_excel("/path_to_pyrate_output_folder/rates.xlsx")
 
 time_e = rates["Time_e"].abs()
 rates["Time_e"] = time_e
@@ -51,7 +51,7 @@ for i in time_slice:
 
 # shape distribution prep
 
-data_raw = np.load("/Users/kristinakocakova/Dropbox/Kristina_PhD/Analyses/PyRate/PyRate_Analysis/outputs/2024/ADE-NN_10_2024/species.npy")
+data_raw = np.load("/path_to_adenn_output_folder/species.npy")
 
 data = np.array(data_raw)
 data = data[::-1, :, :]
@@ -97,8 +97,8 @@ for i, j in enumerate(classes):
 
 # Import extinction rates
 
-rates_subs = np.load("/Users/kristinakocakova/Dropbox/Kristina_PhD/Analyses/PyRate/PyRate_Analysis/outputs/2024/ADE-NN_10_2024/species_rates_10_bins.npy")
-subset_bins = np.load("/Users/kristinakocakova/Dropbox/Kristina_PhD/Analyses/PyRate/PyRate_Analysis/outputs/2024/ADE-NN_10_2024/species_subset_bins_10_bins.npy")
+rates_subs = np.load("/path_to_adenn_output_folder/species_ADENN.npy")
+subset_bins = np.load("/path_to_adenn_output_folder/subset_bins.npy")
 
 mean_rates_x = np.mean(rates_subs, axis = 1)
 mean_rates_x = np.log(mean_rates_x)
@@ -275,7 +275,7 @@ plt.tight_layout()
 
 time_slice = [[145, 94.885], [94.885, 86.282], [86.282, 73.777], [73.777, 71.576], [67.075, 65.374], [65.374, 39.164], [39.164, 33.362], [33.362, 3.351], [3.351, 0.001]]
 #extinction rare plot prep
-rates = pd.read_excel("/Users/kristinakocakova/Dropbox/Kristina_PhD/Analyses/PyRate/PyRate_Analysis/outputs/2024/subsets/selachii.xlsx")
+rates = pd.read_excel("/path_to_pyrate_output_folder/rates.xlsx")
 
 time_e = rates["Time_e"].abs()
 rates["Time_e"] = time_e
@@ -294,7 +294,7 @@ for i in time_slice:
 
 # shape distribution prep
 
-data_raw = np.load("/Users/kristinakocakova/Dropbox/Kristina_PhD/Analyses/PyRate/PyRate_Analysis/ADE_NN/empirical/bins_version2/2024_new/subsets/selachii.npy")
+data_raw = np.load("/path_to_adenn_output_folder/species_ADENN.npy")
 
 data = np.array(data_raw)
 data = data[::-1, :, :]
@@ -470,7 +470,7 @@ for i in range(data.shape[0]):
 ###############
 
 # a)
-data = np.load("/Users/kristinakocakova/Dropbox/Kristina_PhD/Analyses/PyRate/PyRate_Analysis/outputs/2024/ADE-NN_10_2024/species_single_bin.npy")
+data = np.load("/path_to_adenn_output_folder/species_ADENN_single_bin.npy")
 
 clas = data[0, 0, 1]
 
@@ -530,7 +530,7 @@ fig.supylabel("", fontsize=7)
 
 for l, k in enumerate(lst):
 
-    data_raw = np.load("/Users/kristinakocakova/Dropbox/Kristina_PhD/Analyses/PyRate/PyRate_Analysis/outputs/2024/ADE-NN_10_2024/{k}.npy".format(k =k))
+    data_raw = np.load("/path_to_adenn_output_folder/{k}.npy".format(k =k))
 
     data = np.array(data_raw)
     data = data[::-1, :, :]
@@ -625,7 +625,7 @@ fig.supylabel("", fontsize=7)
 
 for l, k in enumerate(lst):
 
-    data_raw = np.load("/Users/kristinakocakova/Dropbox/Kristina_PhD/Analyses/PyRate/PyRate_Analysis/ADE_NN/empirical/bins_version2/2024_new/subsets_by_bins/three_bins/{k}.npy".format(k =k))
+    data_raw = np.load("/path_to_output_folder/{k}.npy".format(k =k))
 
     data = np.array(data_raw)
     data = data[::-1, :, :]
