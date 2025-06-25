@@ -3,6 +3,7 @@ Project: Diversification Rates and ADE
 Description:
 Plotting of longevity distributions based on PyRate speciation and extinction times, and on first and last appearances
 Only extict taxa plotted
+Plotting of all occurrences used in the PyRate and ADE analyses
 """
 import numpy as np
 import pandas as pd
