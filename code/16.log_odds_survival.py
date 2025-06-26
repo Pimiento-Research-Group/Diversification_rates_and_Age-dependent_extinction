@@ -12,6 +12,7 @@ import math
 import statsmodels.api as sm
 import statsmodels.formula.api as smf
 from numpy.ma.extras import row_stack
+from collections import Counter
 
 species = pd.read_csv("/Volumes/External_memory/Dropbox/Kristina_PhD_K's_version/Kristina's files/Analyses/PyRate/PyRate_Analysis/outputs/2025/June/species_raw.txt", sep = "\t")
 
@@ -336,21 +337,37 @@ plt.rcParams['ytick.labelsize'] = 7
 rows = int((len(time_ints) - 1)/2)
 fig, ax = plt.subplots(rows, 2, figsize=(6.69291, 8), sharex= True)
 
-for i, j in enumerate(time_ints):
-    while i <= rows:
-        sns.histplot(data = df_bins.loc[df_bins['bin'] == j], x = "age", hue = "survival", multiple = "stack", edgecolor = "white", palette= ["#6B43B5", "#FCBA03"], binwidth = 1, ax = ax[i, 0])
-        sns.despine()
-        plt.xlabel("Age")
-        plt.ylabel("Frequency")
-        plt.tight_layout()
-        ax[i, k].legend().set_visible(False)
-    else:
-        sns.histplot(data = df_bins.loc[df_bins['bin'] == j], x = "age", hue = "survival", multiple = "stack", edgecolor = "white", palette= ["#6B43B5", "#FCBA03"], binwidth = 1, ax = ax[i, 1])
-        sns.despine()
-        plt.xlabel("Age")
-        plt.ylabel("Frequency")
-        plt.tight_layout()
-        ax[i, k].legend().set_visible(False)
+for k in range(2):
+    for i in range(rows):
+        if k == 0:
+            df = df_bins.loc[df_bins['bin'] == time_ints[i]]
+            prop_surv = []
+            prop_ext = []
+            age = []
+            for j in np.unique(df["age"].values):
+                s = df.loc[df["age"] == j]
+                c = Counter(s["survival"])
+                prop_surv.append(c[0]/len(s))
+                prop_ext.append(c[1]/len(s))
+                age.append(j)
+            df_temp = pd.DataFrame()
+            df_temp["age"] = age
+            df_temp["surv"] = prop_surv
+            df_temp["ext"] = prop_ext
+            df_temp.plot(kind = "bar", x = "age", stacked = True, ax = ax[i, k])
+            # sns.histplot(data = df_bins.loc[df_bins['bin'] == time_ints[i]], x = "age", hue = "survival", multiple = "stack", weights = "percentage", edgecolor = "white", palette= ["#6B43B5", "#FCBA03"], binwidth = 1, ax = ax[i, k])
+            sns.despine()
+            plt.xlabel("Age")
+            plt.ylabel("Frequency")
+            plt.tight_layout()
+            ax[i, k].legend().set_visible(False)
+        elif k == 1:
+            sns.histplot(data = df_bins.loc[df_bins['bin'] == time_ints[i+ 10]], x = "age", hue = "survival", multiple = "stack", weights = "percentage", edgecolor = "white", palette= ["#6B43B5", "#FCBA03"], binwidth = 1, ax = ax[i, k])
+            sns.despine()
+            plt.xlabel("Age")
+            plt.ylabel("Frequency")
+            plt.tight_layout()
+            ax[i, k].legend().set_visible(False)
 
 
 
