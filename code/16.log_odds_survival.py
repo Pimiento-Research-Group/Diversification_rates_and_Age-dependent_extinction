@@ -327,47 +327,67 @@ plt.show()
 
 
 # plot the proportion of survival and extinction at different ages in the different time windows
-time_ints = list(range(140, -1, -5))
+
+max_bin = 140
+winow_size = -5
+time_ints_1 = list(range(max_bin, int(max_bin/2), winow_size))
+time_ints_2 = list(range(int(max_bin/2), 0, winow_size))
 
 plt.rcParams['font.family'] = 'Arial'
 plt.rcParams['pdf.fonttype'] = 42
 plt.rcParams['xtick.labelsize'] = 7
 plt.rcParams['ytick.labelsize'] = 7
 
-rows = int((len(time_ints) - 1)/2)
+rows = len(time_ints_1)
 fig, ax = plt.subplots(rows, 2, figsize=(6.69291, 8), sharex= True)
 
 for k in range(2):
     for i in range(rows):
         if k == 0:
-            df = df_bins.loc[df_bins['bin'] == time_ints[i]]
+            df = df_bins.loc[df_bins['bin'] == time_ints_1[i]]
             prop_surv = []
             prop_ext = []
             age = []
             for j in np.unique(df["age"].values):
                 s = df.loc[df["age"] == j]
                 c = Counter(s["survival"])
-                prop_surv.append(c[0]/len(s))
-                prop_ext.append(c[1]/len(s))
+                prop_surv.append((c[0] / len(s))*100)
+                prop_ext.append((c[1] / len(s))*100)
                 age.append(j)
             df_temp = pd.DataFrame()
             df_temp["age"] = age
             df_temp["surv"] = prop_surv
             df_temp["ext"] = prop_ext
-            df_temp.plot(kind = "bar", x = "age", stacked = True, ax = ax[i, k])
-            # sns.histplot(data = df_bins.loc[df_bins['bin'] == time_ints[i]], x = "age", hue = "survival", multiple = "stack", weights = "percentage", edgecolor = "white", palette= ["#6B43B5", "#FCBA03"], binwidth = 1, ax = ax[i, k])
+            df_temp.plot(kind = "bar", x = "age", stacked = True, ax = ax[i, k], color = ["#6B43B5", "#FCBA03"])
+            ax[i, k].text(s = "Time bin = {n}, n = {m}".format(m = len(df), n = time_ints_1[i]), x = 8, y = 110, fontsize = 7)
             sns.despine()
-            plt.xlabel("Age")
-            plt.ylabel("Frequency")
             plt.tight_layout()
             ax[i, k].legend().set_visible(False)
+            plt.xlabel("")
         elif k == 1:
-            sns.histplot(data = df_bins.loc[df_bins['bin'] == time_ints[i+ 10]], x = "age", hue = "survival", multiple = "stack", weights = "percentage", edgecolor = "white", palette= ["#6B43B5", "#FCBA03"], binwidth = 1, ax = ax[i, k])
+            df = df_bins.loc[df_bins['bin'] == time_ints_2[i]]
+            prop_surv = []
+            prop_ext = []
+            age = []
+            for j in np.unique(df["age"].values):
+                s = df.loc[df["age"] == j]
+                c = Counter(s["survival"])
+                prop_surv.append((c[0] / len(s))*100)
+                prop_ext.append((c[1] / len(s))*100)
+                age.append(j)
+            df_temp = pd.DataFrame()
+            df_temp["age"] = age
+            df_temp["surv"] = prop_surv
+            df_temp["ext"] = prop_ext
+            df_temp.plot(kind="bar", x="age", stacked=True, ax=ax[i, k], color = ["#6B43B5", "#FCBA03"])
+            # sns.histplot(data = df_bins.loc[df_bins['bin'] == time_ints[i+ 10]], x = "age", hue = "survival", multiple = "stack", weights = "percentage", edgecolor = "white", palette= ["#6B43B5", "#FCBA03"], binwidth = 1, ax = ax[i, k])
+            ax[i, k].text(s = "Time bin = {n}, n = {m}".format(m=len(df), n=time_ints_2[i]), x=8, y=110, fontsize = 7)
             sns.despine()
-            plt.xlabel("Age")
-            plt.ylabel("Frequency")
-            plt.tight_layout()
             ax[i, k].legend().set_visible(False)
+            plt.xlabel("")
+fig.supxlabel("Age")
+handles, labels = ax[i, k].get_legend_handles_labels()
+fig.legend(handles, labels, loc='upper center')
 
 
 

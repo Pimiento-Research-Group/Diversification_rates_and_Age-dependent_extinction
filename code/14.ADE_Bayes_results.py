@@ -3,7 +3,7 @@ Project: Diversification Rates and ADE
 Description:
 Extraction of Weibull shape parameters predicted by ADE-Bayes, calculation of mean + 95% CIs
 """
-
+import pandas as pd
 from pandas import *
 import numpy as np
 import scipy.stats as st
@@ -26,6 +26,11 @@ for i in range(1, 11):
     ci_min.append(data['w_shape'].quantile(0.025))
     ci_max.append(data['w_shape'].quantile(0.975))
 
+df = DataFrame()
+df["bin"] = time_ints
+df["weibul"] = weibul
+df["ci_min"] = ci_min
+df["ci_max"] = ci_max
 # plot
 
 plt.rcParams['font.family'] = 'Arial'
