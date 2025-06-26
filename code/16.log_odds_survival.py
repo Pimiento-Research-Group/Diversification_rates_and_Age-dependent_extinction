@@ -333,6 +333,7 @@ winow_size = -5
 time_ints_1 = list(range(max_bin, int(max_bin/2), winow_size))
 time_ints_2 = list(range(int(max_bin/2), 0, winow_size))
 
+
 plt.rcParams['font.family'] = 'Arial'
 plt.rcParams['pdf.fonttype'] = 42
 plt.rcParams['xtick.labelsize'] = 7
@@ -390,10 +391,46 @@ handles, labels = ax[i, k].get_legend_handles_labels()
 fig.legend(handles, labels, loc='upper center')
 
 
+# plot the extinction regime bins
 
+time_int_max = [145, 95.61, 83.5, 73.1, 71.99, 66.59, 65.79, 55.76, 38.77, 33.47, 3.45, 0]
 
+plt.rcParams['font.family'] = 'Arial'
+plt.rcParams['pdf.fonttype'] = 42
+plt.rcParams['xtick.labelsize'] = 7
+plt.rcParams['ytick.labelsize'] = 7
 
+fig, ax = plt.subplots(int(len(time_int_max)/2), 2, figsize=(6.69291, 8), sharex= True)
 
+for i, a in enumerate(ax.flatten()):
+    if i < len(time_int_max) - 1:
+        df = df_bins.loc[(df_bins['bin'] <= time_int_max[i]) & (df_bins['bin'] > time_int_max[i + 1])]
+        if len(df) == 0:
+            print(time_int_max[i])
+            continue
+        else:
+            prop_surv = []
+            prop_ext = []
+            age = []
+            for j in np.unique(df["age"].values):
+                s = df.loc[df["age"] == j]
+                c = Counter(s["survival"])
+                prop_surv.append((c[0] / len(s))*100)
+                prop_ext.append((c[1] / len(s))*100)
+                age.append(j)
+            df_temp = pd.DataFrame()
+            df_temp["age"] = age
+            df_temp["surv"] = prop_surv
+            df_temp["ext"] = prop_ext
+            df_temp.plot(kind = "bar", x = "age", stacked = True, ax = a, color = ["#6B43B5", "#FCBA03"])
+            a.text(s = "Time bin = {n} - {m}, n = {o}".format(o = len(df), n = time_int_max[i], m = time_int_max[i+1]), x = 8, y = 110, fontsize = 7)
+            sns.despine()
+            plt.tight_layout()
+            a.legend().set_visible(False)
+            plt.xlabel("")
+fig.supxlabel("Age")
+handles, labels = ax[i, k].get_legend_handles_labels()
+fig.legend(handles, labels, loc='upper center')
 
 
 
