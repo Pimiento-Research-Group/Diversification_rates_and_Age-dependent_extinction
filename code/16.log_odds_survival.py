@@ -13,6 +13,8 @@ import statsmodels.api as sm
 import statsmodels.formula.api as smf
 from numpy.ma.extras import row_stack
 from collections import Counter
+from scipy.stats import skew
+
 
 species = pd.read_csv("/Volumes/External_memory/Dropbox/Kristina_PhD_K's_version/Kristina's files/Analyses/PyRate/PyRate_Analysis/outputs/2025/June/species_raw.txt", sep = "\t")
 
@@ -225,8 +227,33 @@ fig.supxlabel("Age")
 handles, labels = ax[0, 0].get_legend_handles_labels()
 fig.legend(handles, labels, loc='upper center')
 
+# plot the frequencies of ages at extinctions
 
+time_int_max = [145, 139.8, 132.6, 125.77, 121.4, 113, 100.5, 93.9, 89.8, 86.3, 83.6, 72.1, 66, 61.6, 59.2, 56, 47.8, 41.2, 37.71, 33.9, 27.82, 23.03, 20.44, 15.98, 13.82, 11.63, 7.246,
+                5.333, 3.6, 2.58, 1.8, 0.774, 0.129, 0.0117, 0]
 
+plt.rcParams['font.family'] = 'Arial'
+plt.rcParams['pdf.fonttype'] = 42
+plt.rcParams['xtick.labelsize'] = 7
+plt.rcParams['ytick.labelsize'] = 7
+
+fig, ax = plt.subplots(17, 2, figsize=(6.69291, 8.26772), sharex = True, constrained_layout = True)
+
+axs = ax.flatten()
+
+for i in range(len(time_int_max) - 1):
+    df = species.loc[(species["lad"] <= time_int_max[i]) & (species["lad"] >= time_int_max[i + 1])]
+    skw = skew(df["age"].values)
+    sns.histplot(ax = axs[i], data = df, x = "age", bins = 10, color = "#a8293c")
+    sns.despine()
+    axs[i].set_xlabel("")
+    axs[i].set_ylabel("")
+    # plot the text separately and merge in illustrator, otherwise constrained_layout won't work
+    # plt.text(s = "Time bin = {n} - {m}\nn = {o}\nSkewness = {p}".format(o = len(df), n = time_int_max[i], m = time_int_max[i+1], p = round(skw, 3)), fontsize = 6, x = 0.95, y = 0.95,
+    #             transform=axs[i].transAxes, ha='right', va='top')
+
+fig.supxlabel("Age")
+fig.supylabel("Frequency")
 
 
 

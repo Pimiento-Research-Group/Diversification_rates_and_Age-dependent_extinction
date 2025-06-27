@@ -4,7 +4,7 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="cdb6076a-101b-416a-977a-b1dd6993ce8f" name="Changes" comment="final plotting of saurvival distributions and tabulation of ADE-Bayes">
+    <list default="true" id="cdb6076a-101b-416a-977a-b1dd6993ce8f" name="Changes" comment="converted to be applied on stages">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/code/16.log_odds_survival.py" beforeDir="false" afterPath="$PROJECT_DIR$/code/16.log_odds_survival.py" afterDir="false" />
     </list>
@@ -246,7 +246,15 @@
       <option name="project" value="LOCAL" />
       <updated>1750954342572</updated>
     </task>
-    <option name="localTasksCounter" value="23" />
+    <task id="LOCAL-00023" summary="converted to be applied on stages">
+      <option name="closed" value="true" />
+      <created>1751028169927</created>
+      <option name="number" value="00023" />
+      <option name="presentableId" value="LOCAL-00023" />
+      <option name="project" value="LOCAL" />
+      <updated>1751028169927</updated>
+    </task>
+    <option name="localTasksCounter" value="24" />
     <servers />
   </component>
   <component name="VcsManagerConfiguration">
@@ -268,6 +276,7 @@
     <MESSAGE value="plotting" />
     <MESSAGE value="plotting of extinction and survival proportions" />
     <MESSAGE value="final plotting of saurvival distributions and tabulation of ADE-Bayes" />
-    <option name="LAST_COMMIT_MESSAGE" value="final plotting of saurvival distributions and tabulation of ADE-Bayes" />
+    <MESSAGE value="converted to be applied on stages" />
+    <option name="LAST_COMMIT_MESSAGE" value="converted to be applied on stages" />
   </component>
 </project>
