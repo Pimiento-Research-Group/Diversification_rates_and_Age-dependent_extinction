@@ -4,10 +4,9 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="cdb6076a-101b-416a-977a-b1dd6993ce8f" name="Changes" comment="plotting of age distributions">
+    <list default="true" id="cdb6076a-101b-416a-977a-b1dd6993ce8f" name="Changes" comment="added a line to exclude extant taxs">
       <change afterPath="$PROJECT_DIR$/code/17.extinction_speciation_net_div.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/code/16.log_odds_survival.py" beforeDir="false" afterPath="$PROJECT_DIR$/code/16.log_odds_survival.py" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -263,7 +262,15 @@
       <option name="project" value="LOCAL" />
       <updated>1751036232988</updated>
     </task>
-    <option name="localTasksCounter" value="25" />
+    <task id="LOCAL-00025" summary="added a line to exclude extant taxs">
+      <option name="closed" value="true" />
+      <created>1751037202616</created>
+      <option name="number" value="00025" />
+      <option name="presentableId" value="LOCAL-00025" />
+      <option name="project" value="LOCAL" />
+      <updated>1751037202616</updated>
+    </task>
+    <option name="localTasksCounter" value="26" />
     <servers />
   </component>
   <component name="VcsManagerConfiguration">
@@ -287,6 +294,7 @@
     <MESSAGE value="final plotting of saurvival distributions and tabulation of ADE-Bayes" />
     <MESSAGE value="converted to be applied on stages" />
     <MESSAGE value="plotting of age distributions" />
-    <option name="LAST_COMMIT_MESSAGE" value="plotting of age distributions" />
+    <MESSAGE value="added a line to exclude extant taxs" />
+    <option name="LAST_COMMIT_MESSAGE" value="added a line to exclude extant taxs" />
   </component>
 </project>
