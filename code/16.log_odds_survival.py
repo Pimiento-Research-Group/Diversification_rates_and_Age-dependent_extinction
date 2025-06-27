@@ -2,6 +2,8 @@
 Project: Diversification Rates and ADE
 Description:
 Calculate log odds of survival at a given age
+Plot proportions of surviving and extinct species
+Plot disribution of ages of extinct species through stages
 """
 
 import numpy as np
@@ -17,6 +19,8 @@ from scipy.stats import skew
 
 
 species = pd.read_csv("/Volumes/External_memory/Dropbox/Kristina_PhD_K's_version/Kristina's files/Analyses/PyRate/PyRate_Analysis/outputs/2025/June/species_raw.txt", sep = "\t")
+
+species = species.loc[species["status"] == "extinct"]
 
 # use when implementing bins based on extinction events / using stages
 
