@@ -4,9 +4,8 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="cdb6076a-101b-416a-977a-b1dd6993ce8f" name="Changes" comment="plotting of extinction and survival proportions">
+    <list default="true" id="cdb6076a-101b-416a-977a-b1dd6993ce8f" name="Changes" comment="final plotting of saurvival distributions and tabulation of ADE-Bayes">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/code/14.ADE_Bayes_results.py" beforeDir="false" afterPath="$PROJECT_DIR$/code/14.ADE_Bayes_results.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/code/16.log_odds_survival.py" beforeDir="false" afterPath="$PROJECT_DIR$/code/16.log_odds_survival.py" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
@@ -58,7 +57,7 @@
   <component name="SharedIndexes">
     <attachedChunks>
       <set>
-        <option value="bundled-python-sdk-337b0a7a993a-31b6be0877a2-com.jetbrains.pycharm.community.sharedIndexes.bundled-PC-241.19416.19" />
+        <option value="bundled-python-sdk-4f4e415b4190-aa17d162503b-com.jetbrains.pycharm.community.sharedIndexes.bundled-PC-243.26053.29" />
       </set>
     </attachedChunks>
   </component>
@@ -239,7 +238,15 @@
       <option name="project" value="LOCAL" />
       <updated>1750870099281</updated>
     </task>
-    <option name="localTasksCounter" value="22" />
+    <task id="LOCAL-00022" summary="final plotting of saurvival distributions and tabulation of ADE-Bayes">
+      <option name="closed" value="true" />
+      <created>1750954342572</created>
+      <option name="number" value="00022" />
+      <option name="presentableId" value="LOCAL-00022" />
+      <option name="project" value="LOCAL" />
+      <updated>1750954342572</updated>
+    </task>
+    <option name="localTasksCounter" value="23" />
     <servers />
   </component>
   <component name="VcsManagerConfiguration">
@@ -260,6 +267,7 @@
     <MESSAGE value="calculation of log-odds - use statsmodels instead of sklearn LogisticRegression" />
     <MESSAGE value="plotting" />
     <MESSAGE value="plotting of extinction and survival proportions" />
-    <option name="LAST_COMMIT_MESSAGE" value="plotting of extinction and survival proportions" />
+    <MESSAGE value="final plotting of saurvival distributions and tabulation of ADE-Bayes" />
+    <option name="LAST_COMMIT_MESSAGE" value="final plotting of saurvival distributions and tabulation of ADE-Bayes" />
   </component>
 </project>
