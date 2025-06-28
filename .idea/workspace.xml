@@ -4,10 +4,8 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="cdb6076a-101b-416a-977a-b1dd6993ce8f" name="Changes" comment="plotting of extinction and survival proportions">
+    <list default="true" id="cdb6076a-101b-416a-977a-b1dd6993ce8f" name="Changes" comment="plotting of proportion of survival versus extinctions in extinction regime bins">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/code/14.ADE_Bayes_results.py" beforeDir="false" afterPath="$PROJECT_DIR$/code/14.ADE_Bayes_results.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/code/16.log_odds_survival.py" beforeDir="false" afterPath="$PROJECT_DIR$/code/16.log_odds_survival.py" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -239,7 +237,15 @@
       <option name="project" value="LOCAL" />
       <updated>1750870099281</updated>
     </task>
-    <option name="localTasksCounter" value="22" />
+    <task id="LOCAL-00022" summary="plotting of proportion of survival versus extinctions in extinction regime bins">
+      <option name="closed" value="true" />
+      <created>1750973161509</created>
+      <option name="number" value="00022" />
+      <option name="presentableId" value="LOCAL-00022" />
+      <option name="project" value="LOCAL" />
+      <updated>1750973161509</updated>
+    </task>
+    <option name="localTasksCounter" value="23" />
     <servers />
   </component>
   <component name="VcsManagerConfiguration">
@@ -260,6 +266,7 @@
     <MESSAGE value="calculation of log-odds - use statsmodels instead of sklearn LogisticRegression" />
     <MESSAGE value="plotting" />
     <MESSAGE value="plotting of extinction and survival proportions" />
-    <option name="LAST_COMMIT_MESSAGE" value="plotting of extinction and survival proportions" />
+    <MESSAGE value="plotting of proportion of survival versus extinctions in extinction regime bins" />
+    <option name="LAST_COMMIT_MESSAGE" value="plotting of proportion of survival versus extinctions in extinction regime bins" />
   </component>
 </project>
