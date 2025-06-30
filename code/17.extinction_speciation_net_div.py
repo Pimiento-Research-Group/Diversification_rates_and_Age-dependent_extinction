@@ -39,11 +39,19 @@ orig_no = []
 n_tot = []
 
 for i in range(len(time_ints) - 1):
-    NFL = len(species.loc[(species["fad"] <= time_ints[i]) & (species["lad"] >= time_ints[i + 1])])
-    NbL = len(species.loc[(species["fad"] >= time_ints[i]) & (species["lad"] >= time_ints[i + 1]) & (species["lad"] <= time_ints[i])])
-    NFt = len(species.loc[(species["fad"] <= time_ints[i]) & (species["fad"] >= time_ints[i + 1]) & (species["lad"] <= time_ints[i + 1])])
-    Nbt = len(species.loc[(species["fad"] >= time_ints[i]) & (species["lad"] <= time_ints[i + 1])])
-    Ntot = NFL + NbL + NFt + Nbt
+    if i == 0:
+        NFL = len(species.loc[(species["fad"] <= time_ints[i]) & (species["lad"] >= time_ints[i + 1])])
+        NbL = len(species.loc[(species["fad"] >= time_ints[i]) & (species["lad"] > time_ints[i + 1]) & (species["lad"] < time_ints[i])])
+        NFt = len(species.loc[(species["fad"] < time_ints[i]) & (species["fad"] > time_ints[i + 1]) & (species["lad"] < time_ints[i + 1])])
+        Nbt = len(species.loc[(species["fad"] >= time_ints[i]) & (species["lad"] < time_ints[i + 1])])
+        Ntot = NFL + NbL + NFt + Nbt
+    else:
+        NFL = len(species.loc[(species["fad"] <= time_ints[i]) & (species["lad"] >= time_ints[i + 1])])
+        NbL = len(species.loc[(species["fad"] > time_ints[i]) & (species["lad"] > time_ints[i + 1]) & (species["lad"] < time_ints[i])])
+        NFt = len(species.loc[(species["fad"] <= time_ints[i]) & (species["fad"] > time_ints[i + 1]) & (species["lad"] < time_ints[i + 1])])
+        Nbt = len(species.loc[(species["fad"] > time_ints[i]) & (species["lad"] < time_ints[i + 1])])
+        Ntot = NFL + NbL + NFt + Nbt
+
 
     ext_no.append(NFL + NbL)
     orig_no.append(NFL + NFt)
@@ -95,7 +103,7 @@ sns.set_style("whitegrid")
 sns.lineplot(data = df_rates, x = "stage", y = "ext_rate", color="#bf3e36", ax = ax["A"], linewidth=1.5,
              path_effects=[pe.Stroke(linewidth=3, foreground='w'), pe.Normal()], zorder = 1)
 sns.scatterplot(data = df_rates, x = "stage", y = "ext_rate", ax = ax["A"], color="#bf3e36", zorder = 2)
-ax["A"].set_ylim(ymin=-0.3, ymax=0.7)
+ax["A"].set_ylim(ymin=-0.3, ymax=1)
 ax["A"].set_xlim(xmin = -146, xmax = 1)
 ax["A"].set_xticks(ticks=[-100.5, -66, -56, -33.9, -23.03, -5.333],
                    labels=["", "", "", "", "", ""])
