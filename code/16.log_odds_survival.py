@@ -132,11 +132,11 @@ fig, ax = plt.subplot_mosaic(
 )
 
 sns.despine()
-plt.tight_layout()
+
 fig.subplots_adjust(hspace=0.05)
 ax["B"].xaxis.set_tick_params(which="both", labelbottom=True)
 
-sns.scatterplot(data = df_odds.loc[df_odds["bin"] != 55], x = "bin", y = "log_reg", hue = "sig", ax = ax["A"])
+sns.scatterplot(data = df_odds.loc[df_odds["bin"] != -139.8], x = "bin", y = "log_reg", hue = "sig", ax = ax["A"], palette = ["#6B43B5", "#FCBA03"])
 ax["A"].hlines(y = 0, xmin=-145, xmax = 0, color = "black", linestyles= "dashed")
 
 # Timeline - Stages
@@ -185,7 +185,7 @@ ax["C"].set_xticks(ticks=[-100.5, -66, -56, -33.9, -23.03, -5.333],
 ax["C"].set_xlabel("Time (Ma)", fontsize=7)
 ax["C"].axis("off")
 ax["C"].set_visible(True)
-
+plt.tight_layout()
 plt.show()
 
 
