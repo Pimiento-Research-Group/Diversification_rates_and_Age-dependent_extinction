@@ -25,28 +25,28 @@ def convert(object):
         lyst[i] = float(lyst[i])
     return lyst
 
-occs = pd.read_csv("/Volumes/External_memory/Dropbox/Kristina_PhD_K's_version/Kristina's files/Analyses/PyRate/PyRate_Analysis/inputs/2025/species.txt", sep = "\t")
-occs["max_ma"] = occs["max_ma"]*-1
-occs["min_ma"] = occs["min_ma"]*-1
-
-count_min = dict(sorted(Counter(occs["min_ma"]).items()))
-count_max = dict(sorted(Counter(occs["max_ma"]).items()))
-
-min = list(count_min.keys())
-max = list(count_max.keys())
-
-no_min = list(count_min.values())
-no_max = list(count_max.values())
-
-
-rates = pd.read_csv("/Volumes/External_memory/Dropbox/Kristina_PhD_K's_version/Kristina's files/Analyses/PyRate/PyRate_Analysis/outputs/2025/June/species/RTT_plots.r", sep="\t", header=None)
-
-time_e = convert(rates.iloc[19])
-rate_e = convert(rates.iloc[20])
-
-
-time_s = convert(rates.iloc[3])
-rate_s = convert(rates.iloc[4])
+occs = pd.read_csv("/Users/kristinakocakova/Dropbox/Kristina_PhD_K_version/Kristina_files/Analyses/PyRate/PyRate_Analysis/inputs/2025/species.txt", sep = "\t")
+# occs["max_ma"] = occs["max_ma"]*-1
+# occs["min_ma"] = occs["min_ma"]*-1
+#
+# count_min = dict(sorted(Counter(occs["min_ma"]).items()))
+# count_max = dict(sorted(Counter(occs["max_ma"]).items()))
+#
+# min = list(count_min.keys())
+# max = list(count_max.keys())
+#
+# no_min = list(count_min.values())
+# no_max = list(count_max.values())
+#
+#
+# rates = pd.read_csv("/Volumes/External_memory/Dropbox/Kristina_PhD_K's_version/Kristina's files/Analyses/PyRate/PyRate_Analysis/outputs/2025/June/species/RTT_plots.r", sep="\t", header=None)
+#
+# time_e = convert(rates.iloc[19])
+# rate_e = convert(rates.iloc[20])
+#
+#
+# time_s = convert(rates.iloc[3])
+# rate_s = convert(rates.iloc[4])
 
 # calculate number of collections per stage
 
@@ -56,6 +56,8 @@ df_cols = occs.drop_duplicates(subset = ["max_ma", "min_ma", "collection_no"])
 
 time_ints = [145, 139.8, 132.6, 125.77, 121.4, 113, 100.5, 93.9, 89.8, 86.3, 83.6, 72.1, 66, 61.6, 59.2, 56, 47.8, 41.2, 37.71, 33.9, 27.82, 23.03, 20.44, 15.98, 13.82, 11.63, 7.246,
                 5.333, 3.6, 2.58, 1.8, 0.774, 0.129, 0.0117, 0]
+
+time_ints = [x* -1 for x in time_ints]
 
 cols_count = []
 
@@ -77,32 +79,31 @@ sns.set_style("white")
 
 fig, ax = plt.subplot_mosaic(
     """
-    AA
     BB
     CC
     DD
     EE
     """,
-    figsize=(6.69291, 6), gridspec_kw={"height_ratios": [3, 3, 3, 1, 0.5]}, sharex = True
+    figsize=(6.69291, 6), gridspec_kw={"height_ratios": [4, 4, 1, 0.5]}, sharex = True
 )
 
 fig.subplots_adjust(hspace=0.05)
 
-ax["A1"] = ax["A"].twinx()
-ax["A1"].bar(min, no_min, alpha=0.3, color="purple", zorder=1)
-sns.lineplot(x = time_e, y = rate_e, color="#bf3e36", ax = ax["A"], linewidth=1.5,
-             path_effects=[pe.Stroke(linewidth=3, foreground='w'), pe.Normal()], zorder = 2)
-ax["A"].set_ylabel("Extinction rate", fontsize=7)
-ax["A1"].set_ylabel("Number of occurrence LADs", fontsize=7)
+# ax["A1"] = ax["A"].twinx()
+# ax["A1"].bar(min, no_min, alpha=0.3, color="purple", zorder=1)
+# sns.lineplot(x = time_e, y = rate_e, color="#bf3e36", ax = ax["A"], linewidth=1.5,
+#              path_effects=[pe.Stroke(linewidth=3, foreground='w'), pe.Normal()], zorder = 2)
+# ax["A"].set_ylabel("Extinction rate", fontsize=7)
+# ax["A1"].set_ylabel("Number of occurrence LADs", fontsize=7)
+#
+# ax["B1"] = ax["B"].twinx()
+# ax["B1"].bar(max, no_max, alpha=0.3, color="purple", zorder=1)
+# sns.lineplot(x = time_s, y = rate_s, color="#2d7096", ax = ax["B"], linewidth=1.5,
+#              path_effects=[pe.Stroke(linewidth=3, foreground='w'), pe.Normal()], zorder = 2)
+# ax["B"].set_ylabel("Speciation rate", fontsize=7)
+# ax["B1"].set_ylabel("Number of occurrence FADs", fontsize=7)
 
-ax["B1"] = ax["B"].twinx()
-ax["B1"].bar(max, no_max, alpha=0.3, color="purple", zorder=1)
-sns.lineplot(x = time_s, y = rate_s, color="#2d7096", ax = ax["B"], linewidth=1.5,
-             path_effects=[pe.Stroke(linewidth=3, foreground='w'), pe.Normal()], zorder = 2)
-ax["B"].set_ylabel("Speciation rate", fontsize=7)
-ax["B1"].set_ylabel("Number of occurrence FADs", fontsize=7)
-
-ax["C"].plot([x * -1 for x in time_ints[:-1]], cols_count)
+ax["C"].step(x = time_ints[:-1], y = cols_count)
 ax["C"].set_ylabel("Number of collections\nper stage", fontsize=7)
 
 
