@@ -15,7 +15,7 @@ python3 ./PyRate-master/PyRate.py -plotRJ /path_to_output_folder/ -tag combined 
 python3 ./PyRate-master/PyRate.py -ginput /path_to_output_folder/combined_10_mcmc.log
 #4
 python3 ./PyRate-master/PyRate.py -plotQ /path_to_output_folder/species_1_Grj_mcmc.log -qShift /path_to_input_files/stages.txt -b 0.1
-# to plot
+# to plot (might have adjust the path within the .r script for an absolute path)
 Rscript /path_to_output_folder/species_1_Grj_mcmc_RTT_Qrates.r
 
 
