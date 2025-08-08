@@ -8,7 +8,7 @@ import pandas as pd
 import matplotlib.pyplot as plt
 import seaborn as sns
 
-d = "/Users/kristinakocakova/"
+d = "/Users/kristinakocakova/" # or /Volumes/External_memory/
 
 df = pd.read_csv(d + "Dropbox/Kristina_PhD_K_version/Kristina_files/Analyses/PyRate/PyRate_Analysis/inputs/2025/June/div_dyn_rates.txt", sep = "\t")
 
@@ -18,7 +18,7 @@ plt.rcParams['font.family'] = 'Arial'
 plt.rcParams['pdf.fonttype'] = 42
 plt.rcParams['xtick.labelsize'] = 7
 plt.rcParams['ytick.labelsize'] = 7
-sns.set_style("white")
+sns.set_style("whitegrid")
 
 fig, ax = plt.subplot_mosaic(
     """
@@ -34,12 +34,15 @@ fig, ax = plt.subplot_mosaic(
 fig.subplots_adjust(hspace=0.05)
 
 ax["A"].step(x = df["max_ma"], y = df["extPC_mean"], color = "#bf3e36")
+ax["A"].fill_between(df["max_ma"], df["extPC_lower"], df["extPC_upper"], step="pre", color='#bf3e36', alpha=0.15)
 ax["A"].set_ylabel("Per capita\nextinction rate", fontsize=7)
 
 ax["B"].step(x = df["max_ma"], y = df["oriPC_mean"], color = "#2d7096")
+ax["B"].fill_between(df["max_ma"], df["oriPC_lower"], df["oriPC_upper"], step="pre", color='#2d7096', alpha=0.15)
 ax["B"].set_ylabel("Per capita\nspeciation rate", fontsize=7)
 
 ax["C"].step(x = df["max_ma"], y = df["net_div_mean"], color = "#4f5450")
+ax["C"].fill_between(df["max_ma"], df["net_div_lower"], df["net_div_upper"], step="pre", color='#2d7096', alpha=0.15)
 ax["C"].set_ylabel("Per capita\nnet diversification rate", fontsize=7)
 
 

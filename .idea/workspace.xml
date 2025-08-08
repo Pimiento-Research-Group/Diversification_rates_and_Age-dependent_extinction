@@ -4,10 +4,9 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="cdb6076a-101b-416a-977a-b1dd6993ce8f" name="Changes" comment="streamlined, includes fad lad longveities now">
-      <change afterPath="$PROJECT_DIR$/code/20.plot_divdyn_patterns.py" afterDir="false" />
+    <list default="true" id="cdb6076a-101b-416a-977a-b1dd6993ce8f" name="Changes" comment="skyline plot for per capita rates">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/code/19.basic_div_patterns.R" beforeDir="false" afterPath="$PROJECT_DIR$/code/19.basic_div_patterns.R" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/code/20.plot_divdyn_patterns.py" beforeDir="false" afterPath="$PROJECT_DIR$/code/20.plot_divdyn_patterns.py" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -295,7 +294,15 @@
       <option name="project" value="LOCAL" />
       <updated>1751960765344</updated>
     </task>
-    <option name="localTasksCounter" value="29" />
+    <task id="LOCAL-00029" summary="skyline plot for per capita rates">
+      <option name="closed" value="true" />
+      <created>1754595145654</created>
+      <option name="number" value="00029" />
+      <option name="presentableId" value="LOCAL-00029" />
+      <option name="project" value="LOCAL" />
+      <updated>1754595145654</updated>
+    </task>
+    <option name="localTasksCounter" value="30" />
     <servers />
   </component>
   <component name="VcsManagerConfiguration">
@@ -323,6 +330,7 @@
     <MESSAGE value="adjusted the &quot;preservation&quot; plot to be a skyline plot" />
     <MESSAGE value="added code to save the FAD LAD file" />
     <MESSAGE value="streamlined, includes fad lad longveities now" />
-    <option name="LAST_COMMIT_MESSAGE" value="streamlined, includes fad lad longveities now" />
+    <MESSAGE value="skyline plot for per capita rates" />
+    <option name="LAST_COMMIT_MESSAGE" value="skyline plot for per capita rates" />
   </component>
 </project>
