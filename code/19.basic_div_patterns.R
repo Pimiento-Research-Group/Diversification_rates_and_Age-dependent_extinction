@@ -2,10 +2,14 @@ library(divDyn)
 library(dplyr)
 library(ggplot2)
 library(patchwork)
+library(tidyr)
 
 data("stages")
 
-df <- read.table(file = "/Volumes/External_memory/Dropbox/Kristina_PhD_K's_version/Kristina's files/Analyses/PyRate/PyRate_Analysis/inputs/2025/June/species.txt", sep = "\t")
+dir <- "/Users/kristinakocakova/"
+f <- paste(dir, "Dropbox/Kristina_PhD_K_version/Kristina_files/Analyses/PyRate/PyRate_Analysis/inputs/2025/June/species.txt", sep = "")
+
+df <- read.table(file = f,  sep = "\t", header = TRUE)
 
 n_reps <- 10
 
@@ -77,6 +81,13 @@ summary_rates <- summary_rates %>%
   )
 
 summary_rates$mid_ma <- stages$mid[match(summary_rates$stg, stages$stg)]
+summary_rates$max_ma <- stages$top[match(summary_rates$stg, stages$stg)]
+
+summary_rates <- drop_na(summary_rates)
+
+out <- paste(dir, "Dropbox/Kristina_PhD_K_version/Kristina_files/Analyses/PyRate/PyRate_Analysis/inputs/2025/June/div_dyn_rates.txt", sep = "")
+
+write.table(summary_rates, file = out, sep = "\t")
 
   # Extinction plot
 p_ext <- ggplot(summary_rates, aes(x=mid_ma, y=extPC_mean)) +
@@ -120,4 +131,4 @@ p_net <- ggplot(summary_rates, aes(x=mid_ma, y=net_div_mean)) +
 # Combine into two-panel plot
 p_combined <- p_ext / p_ori / p_net
 
-ggsave("/Volumes/External_memory/Dropbox/Kristina_PhD_K's_version/Kristina's files/Analyses/PyRate/PyRate_Analysis/outputs/2025/June/species/extinction_origination_rates_raw.pdf", p_combined, width=6.69291, height=4, units="in", dpi=300)
+ggsave(paste(dir, "Dropbox/Kristina_PhD_K's_version/Kristina's files/Analyses/PyRate/PyRate_Analysis/outputs/2025/June/species/extinction_origination_rates_raw.pdf", sep = ""), p_combined, width=6.69291, height=4, units="in", dpi=300)

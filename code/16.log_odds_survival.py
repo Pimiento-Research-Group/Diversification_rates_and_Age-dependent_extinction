@@ -18,7 +18,7 @@ from collections import Counter
 from scipy.stats import skew
 
 
-species = pd.read_csv("/Volumes/External_memory/Dropbox/Kristina_PhD_K's_version/Kristina's files/Analyses/PyRate/PyRate_Analysis/outputs/2025/June/species_raw.txt", sep = "\t")
+species = pd.read_csv("/Volumes/External_memory/Dropbox/Kristina_PhD_K_version/Kristina files/Analyses/PyRate/PyRate_Analysis/outputs/2025/June/species_raw.txt", sep = "\t")
 
 species = species.loc[species["status"] == "extinct"]
 
@@ -28,6 +28,7 @@ species = species.loc[species["status"] == "extinct"]
 
 time_int_max = [145, 139.8, 132.6, 125.77, 121.4, 113, 100.5, 93.9, 89.8, 86.3, 83.6, 72.1, 66, 61.6, 59.2, 56, 47.8, 41.2, 37.71, 33.9, 27.82, 23.03, 20.44, 15.98, 13.82, 11.63, 7.246,
                 5.333, 3.6, 2.58, 1.8, 0.774, 0.129, 0.0117, 0]
+
 
 species_lst = []
 bin = []
@@ -76,6 +77,7 @@ ext_0 = df_bins[df_bins["survival"] == 0]
 df_bins = pd.concat([ext_0, ext_1], ignore_index=True)
 df_bins = df_bins.sort_values(by = ["species", "bin"])
 
+df_bins.to_csv("/Users/kristinakocakova/Dropbox/Kristina_PhD_K_version/Manuscripts/Rates_+_ADE/For submission/Proceedings B/clean/Data_S4.txt", index = False, sep = "\t")
 # calculate logistic regression between survival and age for each time bin
 
 time_int_max = [145, 139.8, 132.6, 125.77, 121.4, 113, 100.5, 93.9, 89.8, 86.3, 83.6, 72.1, 66, 61.6, 59.2, 56, 47.8, 41.2, 37.71, 33.9, 27.82, 23.03, 20.44, 15.98, 13.82, 11.63, 7.246,
