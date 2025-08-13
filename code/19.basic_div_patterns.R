@@ -36,19 +36,19 @@ results_list <- vector("list", n_reps)
 
 for (i in 1:n_reps) {
   cat("Replicate", i, "\n")
-  
+
   # Step 1: sample random ages
   df$rand_age <- mapply(sample_random_age, df$min_ma, df$max_ma)
-  
+
   # Step 2: assign each random age to a stage
   df$stg <- sapply(df$rand_age, assign_stage)
-  
+
   # Remove occurrences outside known stages (optional)
   df_i <- df[!is.na(df$stg), ]
-  
+
   # Compute diversity dynamics
   out <- divDyn(df_i, tax="taxon_name", bin="stg")
-  
+
   results_list[[i]] <- out
 }
 
@@ -107,7 +107,7 @@ p_ext <- ggplot(summary_rates, aes(x=mid_ma, y=extPC_mean)) +
 p_ori <- ggplot(summary_rates, aes(x=mid_ma, y=oriPC_mean)) +
   geom_line(color="blue") +
   geom_ribbon(aes(ymin=oriPC_lower, ymax=oriPC_upper), fill="blue", alpha=0.3) +
-  scale_x_reverse() +  
+  scale_x_reverse() +
   xlim(145, 0) +
   coord_cartesian(xlim = c(145, 0)) +
   labs(x = "", y="Per capita origination rate") +
