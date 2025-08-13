@@ -5,6 +5,7 @@ Additional visualisation of raw data in combination with PyRate estimated rates 
 Based on recommendations from https://academic.oup.com/sysbio/article/71/1/153/6295892?login=true
 1. Number of min_mas and extinction rates + Number of max_mas and origination rates (check whether accummulation of these occurr at the same time as high rates)
 2. Number of collections per stage (A "simple" way of looking at preservation)
+3. Number of occurrences per stage
 """
 
 import numpy as np
@@ -15,17 +16,18 @@ import re
 import matplotlib.patheffects as pe
 from collections import Counter
 
-def convert(object):
-    lyst = object.to_list()
-    for i in lyst:
-        lyst = i.split(",")
-    lyst[-1] = lyst[-1].replace(")", "")
-    lyst[0] = re.sub(".*" + "\(", "", lyst[0])
-    for i in range(len(lyst)):
-        lyst[i] = float(lyst[i])
-    return lyst
+# def convert(object):
+#     lyst = object.to_list()
+#     for i in lyst:
+#         lyst = i.split(",")
+#     lyst[-1] = lyst[-1].replace(")", "")
+#     lyst[0] = re.sub(".*" + "\(", "", lyst[0])
+#     for i in range(len(lyst)):
+#         lyst[i] = float(lyst[i])
+#     return lyst
 
-occs = pd.read_csv("/Users/kristinakocakova/Dropbox/Kristina_PhD_K_version/Kristina_files/Analyses/PyRate/PyRate_Analysis/inputs/2025/species.txt", sep = "\t")
+occs = pd.read_csv("/Volumes/External_memory/Dropbox/Kristina_PhD_K_version/Manuscripts/Rates_+_ADE/For submission/Proceedings B/R1/code and data/Inputs/PyRate/species.txt", sep = "\t")
+
 # occs["max_ma"] = occs["max_ma"]*-1
 # occs["min_ma"] = occs["min_ma"]*-1
 #
@@ -48,7 +50,7 @@ occs = pd.read_csv("/Users/kristinakocakova/Dropbox/Kristina_PhD_K_version/Krist
 # time_s = convert(rates.iloc[3])
 # rate_s = convert(rates.iloc[4])
 
-# calculate number of collections per stage
+# 2. calculate number of collections per stage
 
 # modify the dataset to contain only one representative of a collection per time bin
 
@@ -56,8 +58,6 @@ df_cols = occs.drop_duplicates(subset = ["max_ma", "min_ma", "collection_no"])
 
 time_ints = [145, 139.8, 132.6, 125.77, 121.4, 113, 100.5, 93.9, 89.8, 86.3, 83.6, 72.1, 66, 61.6, 59.2, 56, 47.8, 41.2, 37.71, 33.9, 27.82, 23.03, 20.44, 15.98, 13.82, 11.63, 7.246,
                 5.333, 3.6, 2.58, 1.8, 0.774, 0.129, 0.0117, 0]
-
-time_ints = [x* -1 for x in time_ints]
 
 cols_count = []
 
@@ -70,6 +70,7 @@ for i in range(len(time_ints) - 1):
     cols_count.append(Ntot)
 
 # plot Min_ma and ext rate
+time_ints = [x* -1 for x in time_ints]
 
 plt.rcParams['font.family'] = 'Arial'
 plt.rcParams['pdf.fonttype'] = 42
@@ -88,20 +89,6 @@ fig, ax = plt.subplot_mosaic(
 )
 
 fig.subplots_adjust(hspace=0.05)
-
-# ax["A1"] = ax["A"].twinx()
-# ax["A1"].bar(min, no_min, alpha=0.3, color="purple", zorder=1)
-# sns.lineplot(x = time_e, y = rate_e, color="#bf3e36", ax = ax["A"], linewidth=1.5,
-#              path_effects=[pe.Stroke(linewidth=3, foreground='w'), pe.Normal()], zorder = 2)
-# ax["A"].set_ylabel("Extinction rate", fontsize=7)
-# ax["A1"].set_ylabel("Number of occurrence LADs", fontsize=7)
-#
-# ax["B1"] = ax["B"].twinx()
-# ax["B1"].bar(max, no_max, alpha=0.3, color="purple", zorder=1)
-# sns.lineplot(x = time_s, y = rate_s, color="#2d7096", ax = ax["B"], linewidth=1.5,
-#              path_effects=[pe.Stroke(linewidth=3, foreground='w'), pe.Normal()], zorder = 2)
-# ax["B"].set_ylabel("Speciation rate", fontsize=7)
-# ax["B1"].set_ylabel("Number of occurrence FADs", fontsize=7)
 
 ax["C"].step(x = time_ints[:-1], y = cols_count)
 ax["C"].set_ylabel("Number of collections\nper stage", fontsize=7)
@@ -157,8 +144,40 @@ sns.despine()
 plt.tight_layout()
 
 
+# 3. plot of occurrence number per epoch
 
+data = pd.ExcelFile("/Volumes/External_memory/Dropbox/Kristina_PhD_K_version/Manuscripts/Rates_+_ADE/For submission/Proceedings B/R1/code and data/species+genera.xlsx")
+occs = pd.read_excel(data, sheet_name= "Species") # or Genera
+# 329 occurrences have different early and late epoch
 
+epochs = list(occs["early_epoch"].value_counts().keys())
+epoch_counts = list(occs["early_epoch"].value_counts())
+
+# epoch_counts_scaled = []
+#
+# epoch_durs = {"Lower Cretaceous": 44.5, "Upper Cretaceous": 34.5, "Paleocene": 10, "Eocene": 22.1, "Oligocene": 10.87, "Miocene": 17.697, "Pliocene": 2.753, "Pleistocene": 2.5683}
+#
+# for i, j in enumerate(epochs):
+#     epoch_counts_scaled.append(epoch_counts[i]/epoch_durs[j])
+
+plt.rcParams['font.family'] = 'Arial'
+plt.rcParams['pdf.fonttype'] = 42
+plt.rcParams['xtick.labelsize'] = 7
+plt.rcParams['ytick.labelsize'] = 7
+
+fig, ax = plt.subplots(figsize = (6.69291, 8.26772/2))
+
+sns.barplot(x = epochs, y = epoch_counts,  hue = epochs, palette= {"Lower Cretaceous": "#8CCD57", "Upper Cretaceous": "#A6D84A", "Paleocene": "#FDA75F", "Eocene": "#FDB46C", "Oligocene": "#FDC07A", "Miocene": "#FFFF00", "Pliocene": "#FFFF99", "Pleistocene": "#FFF2AE", "Holocene" : "#ffffff"},
+                order= ["Lower Cretaceous", "Upper Cretaceous","Paleocene", "Eocene", "Oligocene", "Miocene", "Pliocene","Pleistocene", "Holocene"])
+
+for container in ax.containers:
+    ax.bar_label(container, color = "#3a3a3a")
+ax.set_xticklabels(["Lower Cret.", "Upper Cret.","Paleocene", "Eocene", "Oligocene", "Miocene", "Pliocene","Pleistocene", "Holocene"])
+plt.ylabel("Number of occurrences")
+plt.xlabel("Epoch")
+sns.despine()
+
+plt.show(block = True)
 
 
 
