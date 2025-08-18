@@ -17,9 +17,11 @@ import seaborn as sns
 import matplotlib.patheffects as pe
 plt.rcParams['svg.fonttype'] = 'none'
 
-def plot(file_name):
+f = "path_to_pyrate_output_folder" # "/Volumes/External_memory/Dropbox/Kristina_PhD_K_version/Kristina_files/Analyses/PyRate/PyRate_Analysis/outputs/2025/June/species"
 
-    r = read_csv("/path_to_pyrate_output_folder/{i}/RTT_plots.r".format(i = file_name), sep="\t", header= None)
+def plot():
+
+    r = read_csv( f + "/RTT_plots.r", sep="\t", header= None)
 
     # CONVERT PYRATE GENERATED R FILE INTO PYTHON LISTS OF SPECIATION AND EXTINCTION RATE VALUES
     def convert(object):
@@ -210,18 +212,18 @@ def plot(file_name):
                       columns=['Time_s', 'Rate_s', "HPD_Min_s", "HPD_Max_s", "Time_e", "Rate_e", "HPD_Min_e", "HPD_Max_e", "Time_d", "Rate_d", "HPD_Min_d", "HPD_Max_d"])
 
 
-    df.to_excel("/path_to_pyrate_output_folder/{i}/rates.xlsx".format(i=file_name))
+    df.to_excel(f + "/rates.xlsx")
 
     # fig.savefig("/Users/kristinakocakova/PycharmProjects/Diversification_and_Age-dependent_Extinction/figures/all_species_{i}/rates_{i}.pdf".format(i=file_name), bbox_inches='tight')
 
     plt.tight_layout()
-    plt.show()
+    plt.show(block = True)
 
 
 
-# Individual rate shifts
+# Individual rate shifts (Figure SX)
 
-r = read_csv("/path_to_pyrate_output_folder/{i}/RTT_plots.r".format(i = file_name), sep="\t", header= None)
+r = read_csv(f + "/RTT_plots.r", sep="\t", header= None)
 
 # CONVERT PYRATE GENERATED R FILE INTO PYTHON LISTS OF SPECIATION AND EXTINCTION RATE VALUES
 def convert(object):
