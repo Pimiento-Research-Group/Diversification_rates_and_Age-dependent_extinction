@@ -206,8 +206,8 @@ def plot(file_name):
     ax["G"].set_xticks(ticks=[-100.5, -66, -56, -33.9, -23.03, -5.333],
                labels=["", "", "", "", "", ""])
 
-    df = DataFrame(list(zip(time_s, rate_s, minHPD_s, maxHPD_s,  time_e, rate_e, minHPD_e, maxHPD_e)),
-                      columns=['Time_s', 'Rate_s', "HPD_Min_s", "HPD_Max_s", "Time_e", "Rate_e", "HPD_Min_e", "HPD_Max_e"])
+    df = DataFrame(list(zip(time_s, rate_s, minHPD_s, maxHPD_s,  time_e, rate_e, minHPD_e, maxHPD_e, time_d, rate_d, minHPD_d, maxHPD_d)),
+                      columns=['Time_s', 'Rate_s', "HPD_Min_s", "HPD_Max_s", "Time_e", "Rate_e", "HPD_Min_e", "HPD_Max_e", "Time_d", "Rate_d", "HPD_Min_d", "HPD_Max_d"])
 
 
     df.to_excel("/path_to_pyrate_output_folder/{i}/rates.xlsx".format(i=file_name))
