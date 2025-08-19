@@ -9,39 +9,63 @@ import re
 import numpy as np
 np.set_printoptions(suppress=True, precision=3)
 
-def extract_ext_rate(directory):
-    r = read_csv(
-        "/path_to_pyrate_output_folder/RTT_plots.r".format(
-            i=directory), sep="\t", header=None)
+f = "path_to_rates.xlsx" # "/Volumes/External_memory/Dropbox/Kristina_PhD_K_version/Kristina_files/Analyses/PyRate/PyRate_Analysis/outputs/2025/June/species"
 
-    def convert(object):
-        lyst = object.to_list()
-        for i in lyst:
-            lyst = i.split(",")
-        lyst[-1] = lyst[-1].replace(")", "")
-        lyst[0] = re.sub(".*" + "\(", "", lyst[0])
-        for i in range(len(lyst)):
-            lyst[i] = float(lyst[i])
-        return lyst
+rates = read_excel(f + "/rates.xlsx")
 
-    time_e = convert(r.iloc[19]) #for origination channge to 3
-    rate_e = convert(r.iloc[20]) #for origination change to 4
+rates["Time_e"] = rates["Time_e"] * -1
+rates["Time_s"] = rates["Time_s"] * -1
+rates["Time_d"] = rates["Time_d"] * -1
 
-    return time_e, rate_e
+time_ext = np.array(rates["Time_e"])
+rate_ext = np.array(rates["Rate_e"])
+time_sp = np.array(rates["Time_s"])
+rate_sp = np.array(rates["Rate_s"])
+time_d = np.array(rates["Time_d"])
+rate_d = np.array(rates["Rate_d"])
 
-time_ext, rate_ext = extract_ext_rate("")
+harm_mean_e = len(rate_ext)/np.sum(1/np.array(rate_ext))
+harm_mean_s = len(rate_sp)/np.sum(1/np.array(rate_sp))
 
-time_ext = np.array(time_ext)
-rate_ext = np.array(rate_ext)
+time_ext[rate_ext > 3*harm_mean_e] # 6* for intense ext events
+time_sp[rate_sp > 3*harm_mean_s] # 6* for intense ext events
+time_d[rate_d > 3* 0.02]
+time_d[rate_d < 3* -0.02]
 
-harm_mean = len(rate_ext)/np.sum(1/np.array(rate_ext))
+ext = [[145, 95.71], [95.71, 83.31], [83.31, 73.40], [73.40, 71.90], [71.90, 66.60], [66.60, 65.79],
+              [65.79, 55.89], [55.89, 38.58], [38.58, 33.57], [33.57, 3.65], [3.65, 0.0117]]
 
-time_ext[rate_ext > 3*harm_mean]
+spec = [[145, 112.23], [112.23, 101.22], [101.22, 100.12], [100.12, 87.21], [87.21, 82.70], [82.70, 72.40],
+        [72.40, 71.39], [71.39, 66.17], [66.17, 64.69], [64.69, 56.49], [56.49, 55.59]]
 
+div = [[145, 111.34], [111.34, 101.42], [101.42, 99.72], [99.72, 94.42], [94.42, 93.62], [93.62, 87.11], [87.11, 82.61],
+       [82.61, 73.60], [73.60, 72.20], [72.20, 72.10], [72.10, 70.80], [70.80, 66.69], [66.69, 65.79], [65.79, 65.59],
+       [65.59, 64.99], [64.99, 56.49], [56.49, 55.49], [55.49, 38.28], [38.28, 33.37], [33.37, 3.15], [3.15, 0.0117]]
 
+# maximum rates + CIs (Table 1)
 
+for i in ext:
+    sub_rate = rate_ext[(time_ext <= i[0]) & (time_ext > i[1])]
+    m = np.max(sub_rate)
+    r = rates[["Time_e", "Rate_e", "HPD_Min_e", "HPD_Max_e"]]
+    print(i)
+    print(r[r["Rate_e"] == m])
 
+for i in spec:
+    sub_rate = rate_sp[(time_sp <= i[0]) & (time_sp > i[1])]
+    m = np.max(sub_rate)
+    r = rates[["Time_s", "Rate_s", "HPD_Min_s", "HPD_Max_s"]]
+    print(i)
+    print(r[r["Rate_s"] == m])
 
+for i in div:
+    sub_rate = rate_d[(time_d <= i[0]) & (time_d > i[1])]
+    max = np.max(sub_rate)
+    min = np.min(sub_rate)
+    r = rates[["Time_d", "Rate_d", "HPD_Min_d", "HPD_Max_d"]]
+    print(i)
+    print(r[r["Rate_d"] == max])
+    print(r[r["Rate_d"] == min])
 
 
 
