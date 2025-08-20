@@ -21,13 +21,15 @@ import re
 import matplotlib.patheffects as pe
 
 
+f = "/path_to_outputs/" # "/Volumes/External_memory/Dropbox/Kristina_PhD_K_version/Kristina_files/Analyses/PyRate/PyRate_Analysis/outputs/2025/"
+
 ###############
 #1. Plot Figure 3.
 ###############
-time_slice = [[145, 95.19], [95.19, 83.29], [83.29, 73.18], [73.18, 71.98], [66.48, 65.78], [65.78, 55.97], [55.97, 38.77], [38.77, 33.47], [33.47, 16.15], [16.15, 4.25], [4.25, 0.0117]]
-
+time_slice = [[145, 95.71], [95.71, 83.31], [83.31, 73.40], [73.40, 71.90], [71.90, 66.60], [66.60, 65.79],
+              [65.79, 55.89], [55.89, 38.58], [38.58, 33.57], [33.57, 3.65], [3.65, 0.0117]]
 # mean extinction rate plot prep
-rates = pd.read_excel("/path_to_pyrate_output_folder/rates.xlsx")
+rates = pd.read_excel(f + "/rates.xlsx")
 
 time_e = rates["Time_e"].abs()
 rates["Time_e"] = time_e
@@ -51,7 +53,7 @@ for i in time_slice:
 
 # shape distribution prep
 
-data_raw = np.load("/path_to_adenn_output_folder/species.npy")
+data_raw = np.load(f + "/ADE-NN/species_ADENN.npy")
 
 data = np.array(data_raw)
 data = data[::-1, :, :]
@@ -97,8 +99,8 @@ for i, j in enumerate(classes):
 
 # Import extinction rates
 
-rates_subs = np.load("/path_to_adenn_output_folder/species_ADENN.npy")
-subset_bins = np.load("/path_to_adenn_output_folder/subset_bins.npy")
+rates_subs = np.load(f + "/ADE-NN/rates.npy")
+subset_bins = np.load(f + "/ADE-NN/subset_bins.npy")
 
 mean_rates_x = np.mean(rates_subs, axis = 1)
 mean_rates_x = np.log(mean_rates_x)
@@ -268,6 +270,7 @@ for i in range(data.shape[0]):
 
 sns.despine(left=True, bottom=True)
 plt.tight_layout()
+plt.show(block = True)
 
 ###############
 #2. Plot Figure S4
