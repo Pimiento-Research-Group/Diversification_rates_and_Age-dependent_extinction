@@ -3,12 +3,14 @@ Project: Diversification Rates and ADE
 Description:
 Create an input file (.txt) from an .xlsx file, which is then used to generate a PyRate input file (script 2.), options for species and genus level filtering
 If adenn = True then the .txt file will simply not contain the collection number, which is required for the file to be used as an ADE-NN input
+In PyRate singletons can be excluded automatically, but for ADE-NN a separate file without singletons needs to be generated, hence the singleton option
 """
 
 import os
 from pandas import *
+from collections import Counter
 
-def pyrate_input(path_to_database, taxonomic_rank, path_to_output, adenn = False):
+def pyrate_input(path_to_database, taxonomic_rank, path_to_output, adenn = False, singleton_exc = False):
     occurrences = read_csv(path_to_database)
 
     # SELECT ONLY THE VALID ENTRIES (considering both age and taxonomy)
@@ -36,6 +38,13 @@ def pyrate_input(path_to_database, taxonomic_rank, path_to_output, adenn = False
 
         if adenn == True:
             occurrences = occurrences[["taxon_name", "status", "max_ma", "min_ma"]]
+            if singleton_exc == True:
+                sing = []
+                occ_no_dict = dict(Counter(occurrences["taxon_name"]))
+                for i in occ_no_dict:
+                    if occ_no_dict[i] == 1:
+                        sing.append(i)
+                occurrences = occurrences[~occurrences.taxon_name.isin(sing)]
 
         #WRITE OUTPUT FILE
         occurrences.to_csv(path_to_output, sep="\t", index=False)
