@@ -780,6 +780,16 @@ if __name__ == "__main__":
     time_slice = [[145, 95.71], [95.71, 83.31], [84, 73.40], [73.40, 71.90], [66.60, 65.79],
                   [65.79, 55.89], [55.89, 38.58], [38.58, 33.57], [33.57, 3.65], [3.65, 0.0117]]  #  [71.90, 66.60] excluded due to low number of species
 
+    # for species through the entire 145 Myr - Figure SX
+    time_slice = [[145, 0.0117]]
+
+    # for species/genera through periods - Figure SX
+    time_slice = [[145, 66], [66, 23.03], [23.03, 0.0117]]
+
+    # for species thorugh time slices around K/Pg - Figure SX
+    time_slice = [[93.9, 72.1], [72.1, 66], [66, 56]]
+
+
     # Create empty arrays to save the values
     data = np.zeros((len(time_slice), n_predictions, 21))
     rmse_1 = np.zeros(len(time_slice))
