@@ -82,10 +82,12 @@ def calc_rates_list(i, data):
 
 # Calculate extinction rates
 
+f = "/path_to_adenn_output_file/" # "/Volumes/External_memory/Dropbox/Kristina_PhD_K_version/Kristina_files/Analyses/PyRate/PyRate_Analysis/outputs/2025/August/ADE-NN/"
+
 n_samples = 10000
 bin_size = 0.1
 
-data = np.load("/path_to_adenn_output_file/species_ADENN.npy")
+data = np.load(f + "species_ADENN.npy")
 # data[7, :, 1] = 0
 rates = np.zeros((data.shape[0], 100, 930))
 j = 0
@@ -94,8 +96,8 @@ for i in reversed(range(data.shape[0])):
      rates[j] = x
      j += 1
 
-f = os.path.join("/path_to_adenn_output_file/rates.npy")
-np.save(file=f, arr=rates)
-f1 = os.path.join("/path_to_adenn_output_file/subset_bins.npy")
-np.save(file=f1, arr=subset_bins)
+f1 = os.path.join(f + "rates.npy")
+np.save(file=f1, arr=rates)
+f2 = os.path.join(f + "subset_bins.npy")
+np.save(file=f2, arr=subset_bins)
 
